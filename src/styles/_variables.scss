@@ -1,0 +1,48 @@
+$white: #fff;
+$black: #000000;
+$warning: #FAA61C;
+$brown: #750001;
+$red: #DB383B;
+$pink: #EA0D8C;
+$blue: #0F58A5;
+$body-bg: $black;
+$green: #1EAD4E;
+$info: $pink;
+$font-family-sans-serif: riffic;
+$border-color: transparentize($white, 0.9);
+$nav-z-index: 100;
+
+
+
+@font-face {
+    font-family: riffic;
+    font-weight: 400;
+    src: url("/font/riffic-regular.ttf");
+}
+
+@font-face {
+    font-family: riffic;
+    font-weight: 700;
+    src: url("/font/riffic-bold.ttf");
+}
+
+@function c($x: 0, $y: 0, $z: 0) {
+    @return clamp($x, $y, $z);
+}
+
+@mixin custom-scrollbar($color: null, $bg: null, $width: 0, $radius: 0) {
+    &::-webkit-scrollbar {
+        width: $width;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: $color;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $bg;
+        border-radius: $radius;
+    }
+}
+
+@mixin gradient-border-bg {}

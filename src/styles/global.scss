@@ -1,0 +1,24 @@
+@use "./utils" as *;
+
+
+
+
+/* Section Artwork Gallery */
+#artwork-gallery {}
+
+#media #media-slider {
+    padding: 3rem 0px;
+
+    .swiper-slide {
+        @include media-breakpoint-up(md){
+            transform: scale(0.5);
+                transition: transform 0.4s;
+            
+                &-active {
+                    transform: scale(1);
+                    z-index: 5;
+                }
+        }
+
+    }
+}

@@ -1,0 +1,75 @@
+@use "./utils" as *;
+
+/**
+    Function c() = clamp(); // it will return clamp() with three values;
+*/
+
+@mixin team-member-card {
+    .team-member-card {
+        --avatar-width: 495px;
+        --name-fsz: #{c(40px, 6vw, 64px)};
+        --subtitle-fsz: #{c(30px, 4vw, 32px)};
+        --subtitle-stroke-w: 2px;
+        --content-max-w:#{c(200px, 35vw, 600px)};
+        --content-ml: #{c(10px, 7vw, 120px)};
+        --brief-fsz: 12px;
+        --avatar-radius: 8rem;
+
+        &.smallCard {
+            --avatar-width: 160px;
+            --avatar-radius: 3.5rem;
+            --content-ml: 20px;
+            --content-max-w: auto;
+            --name-fsz: 36px;
+            --subtitle-stroke-w:1px;
+            --subtitle-fsz: 15px;
+            --brief-fsz: 10px;
+
+            .team-member-card__content-subtitle{
+                letter-spacing: 2px;
+            }
+            .team-member-card__content-name{
+                letter-spacing: 2px;
+            }
+        }
+
+        &__avatar {
+            width: var(--avatar-width);
+            flex-shrink: 0;
+            aspect-ratio: 4 / 4.1373;
+            margin-left: var(--card-ml);
+
+            &>img {
+                width: 100%;
+                height: 100%;
+                border-radius: var(--avatar-radius);
+                border: 4px solid transparent;
+                background: linear-gradient(90deg, #FAA61C -3.56%, rgba(255, 157, 0, 0.387) 97.15%) border-box
+            }
+        }
+
+        &__content {
+            width: var(--content-max-w);
+            margin: var(--content-ml);
+            ;
+
+            &-name {
+                font-size: var(--name-fsz);
+                line-height: 0.8em;
+                letter-spacing: 4px;
+            }
+
+            &-subtitle {
+                font-size: var(--subtitle-fsz);
+                -webkit-text-stroke: var(--subtitle-stroke-w) #FAA61C;
+                color: transparent;
+            }
+
+            &-brief {
+                font-size: var(--brief-fsz);
+            }
+        }
+    }
+
+    .team-member-grid {}
+}
