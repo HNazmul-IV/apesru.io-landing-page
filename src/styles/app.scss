@@ -1,19 +1,19 @@
 @use "./utils" as *;
-@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-*{
+* {
     // outline: 1px solid white;
 }
 
-html ,body{
+html,
+body {
     @include custom-scrollbar(transparent, blue, 5px, 20px);
-    width:100%;
-    // overflow-x: hidden;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .font-sans {
-    font-family: 'Red Hat Display',
-        sans-serif;
+    font-family: "Red Hat Display", sans-serif;
 }
 
 .container-1920 {
@@ -28,23 +28,40 @@ html ,body{
 
 $object-position: (
     "center": center,
-    "start":left,
+    "start": left,
     "end": right,
-    "top":top,
+    "top": top,
     "bottom": bottom,
     "start-center": left center,
     "top-center": top center,
     "end-center": right center,
     "bottom-center": bottom center,
 );
-.img-full, .img-full > img{
+.img-full {
     width: 100%;
 }
 
 @each $key in map-keys($map: $object-position) {
-
     .object-#{$key},
-    .object-#{$key}>img {
-        object-position: map-get($map: $object-position, $key: $key)
+    .object-#{$key} > img {
+        object-position: map-get($map: $object-position, $key: $key);
+    }
+}
+
+.theme-border {
+    --background: linear-gradient(black, black);
+    --border-y: linear-gradient(90deg, rgba(250, 166, 28, 0) 1.24%, rgba(250, 166, 28, 0.5) 52.02%, rgba(250, 166, 28, 0) 100.92%);
+    --border-x: linear-gradient(359.99deg, rgba(250, 166, 28, 0) 1.8%, rgba(250, 166, 28, 0.5) 50.01%, rgba(250, 166, 28, 0) 99.78%);
+    --border-width: 1px;
+    border: 0 solid transparent !important;
+
+    $border-side-widths: border-left #{var(--border-width)} #{var(--border-x)}, border-right #{var(--border-width)} #{var(--border-x)}, border-top #{var(--border-width)} #{var(--border-y)},
+        border-bottom #{var(--border-width)} #{var(--border-y)};
+
+    @each $class, $width, $border in $border-side-widths {
+        &.#{$class} {
+            #{$class}-width: $width !important;
+            background: var(--background) padding-box, #{$border} border-box;
+        }
     }
 }

@@ -1,24 +1,90 @@
 @use "./utils" as *;
 
-
-
-
 /* Section Artwork Gallery */
-#artwork-gallery {}
 
 #media #media-slider {
     padding: 3rem 0px;
 
     .swiper-slide {
-        @include media-breakpoint-up(md){
+        @include media-breakpoint-up(md) {
             transform: scale(0.5);
-                transition: transform 0.4s;
-            
-                &-active {
-                    transform: scale(1);
-                    z-index: 5;
-                }
-        }
+            transition: transform 0.4s;
 
+            &-active {
+                transform: scale(1);
+                z-index: 5;
+            }
+        }
     }
 }
+
+/* Team Member Card Component Responsive Code */
+.two-head-cards {
+    @include media-breakpoint-down(md) {
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 500px;
+        margin: auto;
+
+        .team-member-card__avatar {
+            --avatar-width: 95%;
+        }
+
+        .team-member-card__content {
+            text-align: center;
+        }
+    }
+
+    .head-cards {
+        flex-shrink: 0;
+        width: 100%;
+        padding: c(1rem, 3vw, 4rem) 0px;
+
+
+        //POINT: Specific CSS for KATUN CARD 
+        &.katun-card {
+            @include media-breakpoint-down(sm) {
+                padding-left: 0px !important;
+            }
+
+            .team-member-card {
+                @include media-breakpoint-between(md, xl) {
+                    .team-member-card__avatar {
+                        --avatar-order: 1;
+                    }
+
+                    .team-member-card__content {
+                        --content-order: 0 ;
+                    }
+                }
+
+                @include media-breakpoint-down(xl) {
+                    .team-member-card__content-flex {
+                        justify-content: flex-end;
+                    }
+                }
+            }
+
+            @include media-breakpoint-up(xxl) {
+                --card-ml: #{c(100px, 15vw, 300px)} !important;
+            }
+        }
+
+        .team-member-card {
+            @include media-breakpoint-down(xl) {
+                .team-member-card__content {
+                    --content-max-w: 90%;
+                }
+            }
+
+            @include media-breakpoint-down(md) {
+                .team-member-card__content-flex {
+                    flex-direction: column;
+                }
+            }
+        }
+    }
+
+}
+
+

@@ -1,27 +1,40 @@
 <script lang="ts">
     import IMG_HERO_BG from "../../assets/images/hero-bg.png";
     import IMG_HERO_MONKEY from "../../assets/images/hero-monkey.png";
-    import IMG_HERO_TEXT from "../../assets/images/hero-text.png";
+    import IMG_WALKING_MONKEY from "../../assets/images/walking-monkey.gif";
 </script>
 
-<header id="hero-section" class="mb-4">
-    <div class="container-2k">
-        <div class="hero-section-wrapper position-relative">
-            <div class="header-bg">
-                <img src="{IMG_HERO_BG}" alt="Apesrus hedare background" />
-            </div>
-            <div class="hero-monkey position-absolute">
-                <img src="{IMG_HERO_MONKEY}" alt="" />
+<header id="hero-section" class="mb-4 ">
+    <div class="theme-border border-bottom">
+        <div class="container-2k">
+            <div class="hero-section-wrapper position-relative">
+                <div class="header-bg">
+                    <img src="{IMG_HERO_BG}" alt="Apesrus hedare background" />
+                </div>
+                <div style="" class="hero-monkey position-absolute">
+                    <img src="{IMG_HERO_MONKEY}" alt="" />
+                </div>
             </div>
         </div>
     </div>
 
-    <div class="hero-text-wrapper">
+    <div class="walking-monkey theme-border border-bottom">
+        <div class="walking-monkey__area">
+            <div class="walking-monkey__image">
+                <img src="{IMG_WALKING_MONKEY}" alt="" class="w-100" />
+            </div>
+            <div class="behind-text">
+                <h3 class="text text-muted">Apesru On the Go</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="hero-text-wrapper">
         <div class="hero-text text-center">
             <img src="{IMG_HERO_TEXT}" alt="" draggable="false" />
             <h2 class="hero-text-subtitle text-uppercase">polychromatic primates.</h2>
         </div>
-    </div>
+    </div> -->
 </header>
 
 <style lang="scss">

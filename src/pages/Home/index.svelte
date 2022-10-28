@@ -9,15 +9,22 @@
     import SectionMediaLove from "./SectionMediaLove.svelte";
     import SectionTeam from "./SectionTeam.svelte";
     import SectionRoadmap from "./SectionRoadmap.svelte";
+    import Image from "../../lib/Image.svelte";
+    import SectionAruVerse from "./SectionAruVerse.svelte";
+    import Footer from "./Footer.svelte";
+    import SectionAbout2 from "./SectionAbout2.svelte";
 </script>
 
 <Navbar />
 <SectionHero />
-<SectionNFTGallery />
 <SectionAbout />
-<SectionVideo />
+<SectionNFTGallery />
 <SectionPartners />
+<SectionRoadmap />
+<SectionVideo />
+<SectionTeam />
+<SectionAbout2 />
 <SectionBrandingGallery />
 <SectionMediaLove />
-<SectionTeam />
-<SectionRoadmap />
+<SectionAruVerse />
+<Footer />

@@ -32,7 +32,7 @@
             </div>
 
             <div class="team-members-mixed-cards">
-                <div class="team-members-grid row row-cols-3 g-4">
+                <div class="team-members-grid row  g-4 row-cols-2 row-cols-sm-3 row-cols-lg-2  row-cols-xl-2 row-cols-xxl-3">
                     {#each [...new Array(15)] as teamMember}
                         <div class="col">
                             <TeamMemberCard />

@@ -23,6 +23,7 @@
   "dependencies": {
     "@popperjs/core": "^2.11.6",
     "bootstrap": "^5.2.1",
+    "gsap": "^3.11.3",
     "sass": "^1.55.0",
     "swiper": "^8.4.2"
   }

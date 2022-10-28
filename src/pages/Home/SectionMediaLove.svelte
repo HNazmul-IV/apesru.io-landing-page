@@ -2,10 +2,10 @@
     import { onMount } from "svelte";
     import { Swiper, SwiperSlide } from "swiper/svelte";
     import { Autoplay, Navigation } from "swiper";
-    import "swiper/css";
-    import IMG_MEDIA_CARD_BG from "../../assets/images/media-card-bg.png";
     import type { SwiperOptions } from "swiper";
-    import type { AutoplayOptions } from "swiper/types";
+    import IMG_MEDIA_CARD_BG from "../../assets/images/media-card-bg.png";
+    import IMG_MEDIA_LOVE_TITLE from "../../assets/images/media-love-title.png";
+    import "swiper/css";
 
     let swiperOptions: SwiperOptions = {
         breakpoints: {
@@ -34,8 +34,8 @@
 </script>
 
 <section id="media">
-    <div class="title">
-        <h1 class="display-1 text-center text-light text-uppercase">Media &nbsp; Love</h1>
+    <div class="title text-center">
+        <img src="{IMG_MEDIA_LOVE_TITLE}" loading="lazy" alt="" />
     </div>
 
     <div class="media-slider-cantainer container-2k">

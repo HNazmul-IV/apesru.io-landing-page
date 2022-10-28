@@ -1,7 +1,6 @@
 <script lang="ts">
     import TEAM_AVATAR_DEVID from "../assets/images/team-nft-devid.png";
     export let smallCard = true;
-    export let marginLeft: number | string | null = null;
     export let data = {
         id: "fd1faca0",
         name: "Devid k",
@@ -12,9 +11,9 @@
     };
 </script>
 
-<div id="{data.id}" class="team-member-card" class:smallCard >
+<div id="{data.id}" class="team-member-card" class:smallCard>
     <div class="team-member-card__wrapper">
-        <div class="d-flex align-items-center">
+        <div class="d-flex align-items-center team-member-card__content-flex">
             <div class="team-member-card__avatar">
                 <img loading="lazy" src="{data.avatar}" alt="" />
             </div>

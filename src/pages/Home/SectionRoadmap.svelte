@@ -1,40 +1,43 @@
-<script context="module" lang="ts">
-    export function px_to_parcentage(containerWidth: number, elementWidth: number) {
-        /**
-         * x/100 = 350/1920
-         * x = 100 *
-         */
-    }
-</script>
-
 <script lang="ts">
     import { onMount } from "svelte";
-    import { roadmapImgData, roadmapSpacerHeight } from "../../mocks/roadmapData";
+    import { roadmapImgData as roadmapData, roadmapSpacerHeight } from "../../mocks/roadmapData";
+    import LOGO from "../../assets/images/logo.png";
+    import IMG_FLYING_PAPER from "../../assets/images/flying-paper.gif";
 
-    let containerElement: HTMLDivElement = document.querySelector("roadmap-images__container");
+    let intersectionObserverCallback: IntersectionObserverCallback = function (entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
+        const ANIMATION_CLASSNAME = `in-viewport`;
 
-    let callback: MutationCallback = (mutationList, observer) => {
-        console.log(mutationList, observer);
+        entries.forEach((element: IntersectionObserverEntry) => {
+            if (element.isIntersecting) {
+                element.target.classList.add(ANIMATION_CLASSNAME);
+            } else if (!element.isIntersecting) {
+                element.target.classList.remove(ANIMATION_CLASSNAME);
+            }
+        });
     };
 
     onMount(() => {
-        const observer = new MutationObserver(callback);
-        observer.observe(containerElement, { childList: true, attributes: true, subtree: true, attributeOldValue: true, characterData: true, characterDataOldValue: true });
+        let interSectionObserver = new IntersectionObserver(intersectionObserverCallback, { rootMargin: `50% 0px -${window.innerHeight * 0.5}px 0px` });
+        document.querySelectorAll(".roadmap-images__image-card").forEach((element) => interSectionObserver.observe(element));
     });
 </script>
 
 <section id="roadmap">
-    <div class="roadmap-title pb-5">
-        <h1 class="text-uppercase text-center display-1 fw-bolder text-warning pb-5">Roadmap</h1>
+    <div class="roadmap-title pb-5 text-center">
+        <div class="logo">
+            <img src="{LOGO}" class="w-100" alt="" />
+        </div>
+        <h1 class="title text-black text-uppercase">Roadmap 2.0</h1>
+        <div class="flying-paper ">
+            <img src="{IMG_FLYING_PAPER}" class="w-100" alt="" />
+        </div>
     </div>
 
-    <div class="roadmap-images">
-        <div bind:this="{containerElement}" class="roadmap-images__container">
-            <div class="road-images__container-spacer" style="--height:{roadmapSpacerHeight}vw"></div>
-            <div class="position-absolute" style="width:19.875%"></div>
-            {#each roadmapImgData as imageData}
-                <div class="roadmap-images__image img-full {imageData.meta.class} {imageData.name}" >
-                    <img loading="lazy" src="{imageData.img}" alt="" />
+    <div class="roadmap-images__container">
+        <div class="roadmap-images__wrapper">
+            {#each roadmapData as roadmap}
+                <div class="roadmap-images__image-card {roadmap.name}">
+                    <img src="{roadmap.img}" alt="" />
                 </div>
             {/each}
         </div>
