@@ -3,6 +3,7 @@
     import { roadmapImgData as roadmapData, roadmapSpacerHeight } from "../../mocks/roadmapData";
     import LOGO from "../../assets/images/logo.png";
     import IMG_FLYING_PAPER from "../../assets/images/flying-paper.gif";
+    import { css_genartaing } from "../../out/cssGenaration";
 
     let intersectionObserverCallback: IntersectionObserverCallback = function (entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
         const ANIMATION_CLASSNAME = `in-viewport`;
@@ -20,6 +21,8 @@
         let interSectionObserver = new IntersectionObserver(intersectionObserverCallback, { rootMargin: `50% 0px -${window.innerHeight * 0.5}px 0px` });
         document.querySelectorAll(".roadmap-images__image-card").forEach((element) => interSectionObserver.observe(element));
     });
+
+    onMount(css_genartaing);
 </script>
 
 <section id="roadmap">
@@ -29,7 +32,7 @@
         </div>
         <h1 class="title text-black text-uppercase">Roadmap 2.0</h1>
         <div class="flying-paper ">
-            <img src="{IMG_FLYING_PAPER}" class="w-100" alt="" />
+            <img loading="lazy" src="{IMG_FLYING_PAPER}" class="w-100" alt="" />
         </div>
     </div>
 
@@ -38,6 +41,11 @@
             {#each roadmapData as roadmap}
                 <div class="roadmap-images__image-card {roadmap.name}">
                     <img src="{roadmap.img}" alt="" />
+                </div>
+            {/each}
+            {#each ["middle", "bottom"] as fly_paper_class}
+                <div class="roadmap-images__flying-paper {fly_paper_class}">
+                    <img loading="lazy" class="" src="{IMG_FLYING_PAPER}" alt="" />
                 </div>
             {/each}
         </div>

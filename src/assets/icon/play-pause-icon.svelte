@@ -1,27 +1,43 @@
 <script>
 </script>
 
-<svg width="100%" height="100%" viewBox="0 0 304 304" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <style>
-        .middle-class {
-            transition: 0.3s;
-            transform-origin: center center;
-        }
-        .middle-class:hover {
-            fill: white;
-            cursor: pointer;
-            transform: scale(0.8);
-        }
-    </style>
-    <g clip-path="url(#clip0_55_63)">
-        <path
-            class="middle-class"
-            d="M111.803 87.3406C116.256 84.7875 121.778 84.3719 126.172 87.5781L211.672 139.828C215.887 142.441 218.5 147.013 218.5 152C218.5 156.987 215.887 161.559 211.672 164.172L126.172 216.422C121.778 219.094 116.256 219.212 111.803 216.659C107.291 214.166 104.5 209.416 104.5 204.25V99.2156C104.5 94.5844 107.291 89.8344 111.803 87.3406ZM304 152C304 235.956 235.956 304 152 304C68.0438 304 0 235.956 0 152C0 68.0438 68.0438 0 152 0C235.956 0 304 68.0438 304 152ZM152 28.5C83.7781 28.5 28.5 83.7781 28.5 152C28.5 220.222 83.7781 275.5 152 275.5C220.222 275.5 275.5 220.222 275.5 152C275.5 83.7781 220.222 28.5 152 28.5Z"
-            fill="#B5B5B5"></path>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 364">
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Play-pause-icon">
+            <g id="circle">
+                <path
+                    class="cls-1"
+                    d="M185,362.5A183.88,183.88,0,0,1,55.27,309.66C20.6,275.56,1.5,230.23,1.5,182S20.6,88.44,55.27,54.34a185.67,185.67,0,0,1,259.46,0C349.4,88.44,368.5,133.77,368.5,182s-19.1,93.56-53.77,127.66A183.88,183.88,0,0,1,185,362.5Zm0-330.94A153.43,153.43,0,0,0,76.74,75.65a148.63,148.63,0,0,0,0,212.7,155,155,0,0,0,216.52,0,148.63,148.63,0,0,0,0-212.7A153.43,153.43,0,0,0,185,31.56Z"
+                ></path>
+            </g>
+            <g id="play-pause">
+                <path class="cls-2" d="M178.31,156.58H154.36v58.85h23.95Z"></path>
+                <path class="cls-2" d="M255.94,164.16l-108-49.28a14.14,14.14,0,0,0-20,12.87V237.44a13,13,0,0,0,18.35,11.79l109.69-50a19.24,19.24,0,0,0,11.26-17.51h0A19.24,19.24,0,0,0,255.94,164.16Z"
+                ></path>
+            </g>
+        </g>
     </g>
-    <defs>
-        <clipPath id="clip0_55_63">
-            <rect width="304" height="304" fill="white"></rect>
-        </clipPath>
-    </defs>
 </svg>
+
+<style lang="scss">
+    @use "../../styles/utils" as *;
+    svg {
+        --icon-fill: #999ca6;
+        cursor: pointer;
+        transition: 0.3s;
+
+        #circle,
+        #play-pause {
+            fill: var(--icon-fill);
+            stroke: var(--stroke-fill);
+            stroke-width: 5px;
+        }
+
+        &:hover {
+            --icon-fill: #{$warning};
+            --stroke-fill: #{darken($warning, 30)};
+            filter: drop-shadow(1px 1px 10px $warning);
+            transform: scale(0.9);
+        }
+    }
+</style>

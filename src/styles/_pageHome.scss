@@ -291,12 +291,13 @@
 
 @mixin section-video {
     #video-section {
-        padding: c(25px, 5vw, 50px) 0;
-        --video-radius: #{c(20px, 10vw, 150px)};
-
-        // @include media-breakpoint-down(xl) {
-        //     --video-radius: 7rem;
-        // }
+        padding: c(50px, 8.75vw, 168px) 0px;
+        --video-radius: #{c(10px, 2.5vw, 40px)};
+        & > .title > h1 {
+            -webkit-text-stroke: 2px $warning;
+            font-size: c(30px, 3.33vw, 64px);
+            letter-spacing: 0.3em;
+        }
     }
 
     .video-area {
@@ -305,13 +306,13 @@
         .video-container {
             max-width: 1756px;
             width: 95%;
-            // height: 1012px;
+
             position: relative;
-            // height:70vh;
-            // max-height: 1440px;
             aspect-ratio: 16/9.252;
             border-radius: var(--video-radius);
             overflow: hidden;
+            border: 5px solid transparentize($color: $warning, $amount: 0.3);
+            box-shadow: 0px 4px 65px 11px rgba(250, 166, 28, 0.3);
 
             z-index: 1;
 
@@ -620,36 +621,56 @@
 
 @mixin section-team {
     /* Team Card Component and Parent Component Related Responsive code is in Global  File */
+    #section-team {
+        --border-width: 5px;
+        --border-y: linear-gradient(90deg, rgba(250, 166, 28, 0) 1.24%, rgba(235, 33, 50, 0.5) 52.02%, rgba(250, 166, 28, 0) 100.92%);
+    }
     .team-title {
         position: relative;
         z-index: 1;
 
         .title {
             position: absolute;
-            top: 50%;
+            top: 20%;
             left: 50%;
             width: 100%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, 0);
 
             & > h1 {
-                font-size: 48px;
-                line-height: 113.5%;
-                letter-spacing: 54px;
-                -webkit-text-stroke: 2px #faa61c;
-
-                @include media-breakpoint-down(sm) {
-                    letter-spacing: 10px;
-                }
+                font-size: c(40px, 5vw, 96px);
+                color: $warning;
+                letter-spacing: 0.2em;
             }
         }
     }
 
     .team-members-container {
-        padding: 0 5vw 5vw 5vw;
+        padding: 0 5vw 0px 5vw;
+        margin-top: -282px;
+        position: relative;
+        z-index: 2;
     }
 
     .team-members-mixed-cards {
         padding: c(100px, 7vw, 150px) 0px;
+    }
+}
+
+@mixin section-about2 {
+    #about-2 {
+        padding: c(50px, 8.75vw, 168px) 0px;
+        & > .container-1920 {
+            padding: 0px c(10px, 6.979vw, 134px);
+        }
+    }
+    .desc {
+        padding: 0px calc(100% / 12);
+        p {
+            font-size: 20px;
+            margin-bottom: 0px;
+            text-transform: uppercase;
+            line-height: 1.2em;
+        }
     }
 }
 
@@ -671,8 +692,8 @@
             bottom: 0px;
             left: 50%;
             width: c(100px, 40.83vw, 784px);
-            @include media-breakpoint-down(md){
-                bottom:30%;
+            @include media-breakpoint-down(md) {
+                bottom: 30%;
             }
         }
     }
@@ -758,6 +779,26 @@
                 filter: grayscale(0) blur(0px);
             }
         }
+
+        .roadmap-images__flying-paper {
+            position: absolute;
+            z-index: 1;
+            & > img {
+                width: 100%;
+            }
+            &.middle {
+                width: 115.95528455284553%;
+                aspect-ratio: 12 / 12;
+                top: 28.691%;
+                left: -46.626%;
+            }
+            &.bottom {
+                width: 115.95528455284553%;
+                aspect-ratio: 12 / 12;
+                top: 78.242%;
+                left: 86.152%;
+            }
+        }
     }
 }
 
@@ -780,6 +821,7 @@
             margin-top: -40px;
             .gif-image {
                 max-width: 759px;
+                width: 759px;
                 display: inline-block;
                 & > img {
                     width: 100%;

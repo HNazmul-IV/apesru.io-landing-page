@@ -59,21 +59,6 @@
             class: "object-top rounded-2",
         },
     ];
-
-    onMount(() => {
-        let css = "";
-        images.forEach((item, index) => {
-            css += `
-                &.card-${index + 1}{
-                    --grid-column: ${item.gridColumn};
-                    --grid-row: ${item.gridRow};
-                 }
-            `;
-            if (index === images.length - 1) {
-                console.log(css);
-            }
-        });
-    });
 </script>
 
 <section id="artwork-gallery">

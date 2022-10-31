@@ -11,7 +11,7 @@
         --name-fsz: #{c(40px, 6vw, 64px)};
         --subtitle-fsz: #{c(30px, 4vw, 32px)};
         --subtitle-stroke-w: 2px;
-        --content-max-w:#{c(200px, 35vw, 600px)};
+        --content-max-w: #{c(200px, 35vw, 600px)};
         --content-order: 1;
         --content-ml: #{c(10px, 7vw, 120px)};
         --brief-fsz: 12px;
@@ -21,48 +21,6 @@
             --avatar-width: 300px;
             --avatar-radius: 3rem;
         }
-
-        &.smallCard {
-            --avatar-width: 160px;
-            --avatar-radius: 3.5rem;
-            --content-ml: 20px;
-            --content-max-w: auto;
-            --name-fsz: 36px;
-            --subtitle-stroke-w: 1px;
-            --subtitle-fsz: 15px;
-            --brief-fsz: 10px;
-
-            @include media-breakpoint-down(md) {
-
-                --name-fsz: 30px;
-                --subtitle-stroke-w: 0.5px;
-                --brief-fsz: 8px;
-                --subtitle-fsz: 12px;
-            }
-            
-            @include media-breakpoint-down(lg) {
-                --avatar-radius: 1rem;
-                --name-fsz:30px;
-                --subtitle-fsz:14px;
-                --content-ml: 0px;
-                --avatar-width:100%;
-
-
-                .team-member-card__content-flex {
-                    flex-wrap: wrap;
-                    flex-direction: column;
-                }
-            }
-
-            .team-member-card__content-subtitle {
-                letter-spacing: 2px;
-            }
-
-            .team-member-card__content-name {
-                letter-spacing: 2px;
-            }
-        }
-
         &__avatar {
             width: var(--avatar-width);
             flex-shrink: 0;
@@ -70,12 +28,12 @@
             margin-left: var(--card-ml);
             order: var(--avatar-order);
 
-            &>img {
+            & > img {
                 width: 100%;
                 height: 100%;
                 border-radius: var(--avatar-radius);
-                border: 4px solid transparent;
-                background: linear-gradient(90deg, #FAA61C -3.56%, rgba(255, 157, 0, 0.387) 97.15%) border-box
+                border: 3px solid transparent;
+                background: linear-gradient(90deg, #faa61c -3.56%, rgba(255, 157, 0, 0.387) 97.15%) border-box;
             }
         }
 
@@ -83,17 +41,15 @@
             width: var(--content-max-w);
             margin: var(--content-ml);
             order: var(--content-order);
-            ;
-
             &-name {
                 font-size: var(--name-fsz);
-                line-height: 0.8em;
+                line-height: 0.9em;
                 letter-spacing: 4px;
             }
 
             &-subtitle {
                 font-size: var(--subtitle-fsz);
-                -webkit-text-stroke: var(--subtitle-stroke-w) #FAA61C;
+                -webkit-text-stroke: var(--subtitle-stroke-w) #faa61c;
                 color: transparent;
             }
 
@@ -103,5 +59,43 @@
         }
     }
 
-    .team-member-grid {}
+    .team-member-card.smallCard {
+        --avatar-width: 160px;
+        --avatar-radius: 3.5rem;
+        --content-ml: 20px;
+        --content-max-w: auto;
+        --name-fsz: 36px;
+        --subtitle-stroke-w: 1px;
+        --subtitle-fsz: 17px;
+        --brief-fsz: 10px;
+
+        @include media-breakpoint-down(md) {
+            --name-fsz: 30px;
+            --subtitle-stroke-w: 0.5px;
+            --brief-fsz: 8px;
+            --subtitle-fsz: 12px;
+        }
+
+        @include media-breakpoint-down(lg) {
+            --avatar-radius: 1rem;
+            --name-fsz: 30px;
+            --subtitle-fsz: 14px;
+            --content-ml: 0px;
+            --avatar-width: 100%;
+
+            .team-member-card__content-flex {
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+        }
+
+        .team-member-card__content-subtitle {
+            letter-spacing: 2px;
+            -webkit-text-stroke-width: 0.5px;
+        }
+
+        .team-member-card__content-name {
+            letter-spacing: 2px;
+        }
+    }
 }

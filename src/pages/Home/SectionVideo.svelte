@@ -5,12 +5,12 @@
 
 <section id="video-section">
     <div class="title py-5">
-        <h1 class="display-2 text-center text-white mb-5">ApusRus video</h1>
+        <h1 class=" text-center text-black mb-5 text-uppercase">ApusRus video</h1>
     </div>
 
     <div class="video-area">
-        <div class="video-container border mx-auto">
-            <img loading="{'lazy'}" src="{IMG_VIDEO_THUMB}" alt="" />
+        <div class="video-container mx-auto">
+            <img loading="{'lazy'}" src="{IMG_VIDEO_THUMB}" class="w-100" alt="" />
             <div class="play-pause-icon">
                 <PlayPauseIcon />
             </div>

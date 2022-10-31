@@ -1,14 +1,29 @@
 <script lang="ts">
+    import Collapse from "bootstrap/js/dist/collapse";
+    import { onMount } from "svelte";
     import TEAM_AVATAR_DEVID from "../assets/images/team-nft-devid.png";
+
+    interface Data {
+        name: string;
+        subtitle: string;
+        avatar: string;
+        id: string;
+        brief?: string | boolean;
+        head?: number;
+    }
+
     export let smallCard = true;
-    export let data = {
-        id: "fd1faca0",
-        name: "Devid k",
-        subtitle: "Co Founder",
-        brief: `CO-FOUNDER OF APES R US, DAVID KU EMERGED INTO THE METAVERSE LAST YEAR ALONGSIDE HIS COLLECTIVE 4 STAGES. WITH HIS PASSIONS OF COLLECTING ART FOR MANY YEARS, HE FOUND HIMSELF
-                    VERSED IN A SPACE THAT EXTENUATES ALL THINGS STREET ART — WHICH IN TURN HEEDED HIS INTEREST WITHIN THE GROWING TREND THAT BOOMED IN THE WEB3, PARTICULARLY IN NFTS.`,
-        avatar: TEAM_AVATAR_DEVID,
-    };
+    export let data: Data = <Data>{};
+    let briefCollapseElement: HTMLSpanElement;
+
+    function makingPragrapCollapse() {
+        let briefCollapse = new Collapse("#brief-" + data.id, {
+            toggle: false,
+        });
+        console.log(briefCollapse);
+    }
+
+    // onMount(makingPragrapCollapse);
 </script>
 
 <div id="{data.id}" class="team-member-card" class:smallCard>
@@ -18,10 +33,16 @@
                 <img loading="lazy" src="{data.avatar}" alt="" />
             </div>
             <div class="team-member-card__content text-light">
-                <h1 class="team-member-card__content-name ">{data.name}</h1>
-                <h2 class="team-member-card__content-subtitle mb-2 text-uppercase">{data.subtitle}</h2>
+                <h1 class="team-member-card__content-name text-uppercase">{@html data.name}</h1>
+                <h2 class="team-member-card__content-subtitle mb-2 text-uppercase">{@html data.subtitle}</h2>
                 <p class="team-member-card__content-brief font-sans mb-0">
-                    {data.brief}
+                    {#if typeof data.brief === "string"}
+                        <!-- {#if data.brief.length > 630}
+                            <span class="">{data.brief.substring(0, 620)}</span> <span class="brief-collapse collapse" id="brief-{data.id}">{data.brief.substring(620, data.brief.length)}</span>
+                            <button class="btn btn-sm text-warning fw-bold" data-bs-toggle="collapse" data-bs-target="#brief-{data.id}">...Read More</button>
+                        {/if} -->
+                        {data.brief}
+                    {/if}
                 </p>
             </div>
         </div>

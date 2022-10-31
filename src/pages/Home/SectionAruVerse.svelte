@@ -1,5 +1,6 @@
 <script lang="ts">
     import IMG_ROTATING_HEAD_STATIC from "../../assets/images/rotating-head.png";
+    import VIDEO_ROTATING_HEAD from "../../assets/video/rotating-head.mp4";
 </script>
 
 <section id="aru-verse" class="">
@@ -10,8 +11,10 @@
 
     <div class="gif-image-container">
         <div class="gif-image-wrapper pb-5">
-            <div class="gif-image " >
-                <img src="{IMG_ROTATING_HEAD_STATIC}" alt="" />
+            <div class="gif-image ">
+                <video class="w-100" src="{VIDEO_ROTATING_HEAD}" autoplay="{true}" loop="{true}" poster="{IMG_ROTATING_HEAD_STATIC}">
+                    <track kind="captions" />
+                </video>
             </div>
         </div>
     </div>
