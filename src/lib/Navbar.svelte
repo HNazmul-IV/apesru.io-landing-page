@@ -1,36 +1,27 @@
 <script lang="ts">
-    import { Collapse } from "bootstrap";
+    import Collapse from "bootstrap/js/dist/collapse";
     import { onMount } from "svelte";
     import LOGO from "../assets/images/logo.png";
 
     let shrink = false;
     let navbar: HTMLElement;
-    let navbarElements = [];
-    let navbarCollapse: HTMLDivElement;
+    let navCollapse: Collapse;
 
     onMount(() => window.addEventListener("scroll", () => (shrink = window.scrollY > 50)));
     onMount(() => {
-        const navCollapse = new Collapse("#navbar-navs-element", {
+        let navbarCollapseElement = document.getElementById("nav-item-collapse");
+        navCollapse = new Collapse("#nav-item-collapse", {
             toggle: false,
         });
-
-        navbarCollapse.addEventListener("shown.bs.collapse", () => navbar.classList.add("dynamic-border"));
-        navbarCollapse.addEventListener("hidden.bs.collapse", () => navbar.classList.remove("dynamic-border"));
+        navbarCollapseElement.addEventListener("shown.bs.collapse", () => navbar.classList.add("dynamic-border"));
+        navbarCollapseElement.addEventListener("hidden.bs.collapse", () => navbar.classList.remove("dynamic-border"));
         window.addEventListener("resize", () => navCollapse.hide());
-
-        navbarElements.forEach((element: HTMLUListElement) =>
-            element.addEventListener("click", () => {
-                if (window.getComputedStyle(navbarCollapse).display !== "none") {
-                    navCollapse.hide();
-                }
-            }),
-        );
     });
     const navbarLinkdata = [
         {
             name: "Home",
             link: "/#",
-            colorProfile: "danger",
+            colorProfile: "danger d-lg-none d-xxl-block ",
         },
         {
             name: "About",
@@ -38,17 +29,32 @@
             colorProfile: "warning",
         },
         {
-            name: "Partners",
+            name: "NFT&nbsp;Collection",
             link: "/#",
             colorProfile: "success",
         },
         {
-            name: "Apesrus",
+            name: "Partners ",
             link: "/#",
             colorProfile: "info",
         },
         {
-            name: "Apesrus",
+            name: "Roadmap&nbsp;2.0",
+            link: "/#",
+            colorProfile: "primary",
+        },
+        {
+            name: "Promo&nbsp;Video",
+            link: "/#",
+            colorProfile: "danger",
+        },
+        {
+            name: "Team",
+            link: "/#",
+            colorProfile: "warning",
+        },
+        {
+            name: "epz",
             link: "/#",
             colorProfile: "primary",
         },
@@ -58,14 +64,7 @@
 <nav class="navbar navbar-expand-lg position-fixed    w-100 top-0 start-0 p-0 px-3 p-lg-0" class:shrink bind:this="{navbar}">
     <div class="container-fluid p-1 p-md-2">
         <a class="navbar-brand text-light fw-normal" href="/#"><img class="logo" src="{LOGO}" alt="APESRUS Brand Logo" /></a>
-        <button
-            class="navbar-toggler text-warning"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbar-navs-element"
-            aria-controls="navbar-navs-element"
-            aria-expanded="false"
-            aria-label="Toggle navigation">
+        <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#nav-item-collapse">
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"
                 ><path
                     fill="currentColor"
@@ -73,11 +72,11 @@
                 ></path
                 ></svg>
         </button>
-        <div class="collapse navbar-collapse" bind:this="{navbarCollapse}" id="navbar-navs-element">
-            <ul class="navbar-nav ms-auto px-3F py-5 py-lg-0">
+        <div class="collapse navbar-collapse" id="nav-item-collapse">
+            <ul class="navbar-nav ms-auto px-3F py-5 py-lg-0" on:click="{() => window.innerWidth < 992 && navCollapse.hide()}">
                 {#each navbarLinkdata as link}
-                    <li bind:this="{navbarElements[navbarElements.length]}" class="nav-item">
-                        <a href="{link.link}" class="nav-link fw-bold text-center text-lg-start   text-{link.colorProfile} text-uppercase">{link.name}</a>
+                    <li class="nav-item">
+                        <a href="{link.link}" class="nav-link fw-bold text-center text-lg-start   text-{link.colorProfile} text-uppercase">{@html link.name}</a>
                     </li>
                 {/each}
             </ul>
