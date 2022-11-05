@@ -4,7 +4,7 @@
     import { teamMemberData } from "../../mocks/team_member_data";
 </script>
 
-<section id="section-team" class="border-bottom theme-border">
+<section id="team" class="border-bottom theme-border">
     <div class="team-title w-100 ">
         <div class="bg w-100">
             <img loading="{'lazy'}" class="img-fluid w-100" src="{IMG_APESRU_BG}" alt="" />

@@ -4,6 +4,7 @@
 
 #media #media-slider {
     padding: 3rem 0px;
+    padding-left: 10px;
 
     .swiper-slide {
         @include media-breakpoint-up(md) {
@@ -19,7 +20,7 @@
 }
 
 /* Team Member Card Component Responsive Code */
-.two-head-cards {
+#team .two-head-cards {
     @include media-breakpoint-down(md) {
         display: flex;
         flex-wrap: wrap;
@@ -40,21 +41,20 @@
         width: 100%;
         padding: c(1rem, 3vw, 4rem) 0px;
 
-
-        //POINT: Specific CSS for KATUN CARD 
+        //POINT: Specific CSS for KATUN CARD
         &.katun-card {
             @include media-breakpoint-down(sm) {
                 padding-left: 0px !important;
             }
 
             .team-member-card {
-                @include media-breakpoint-between(md, xl) {
+                @include media-breakpoint-between(md, xxl) {
                     .team-member-card__avatar {
                         --avatar-order: 1;
                     }
 
                     .team-member-card__content {
-                        --content-order: 0 ;
+                        --content-order: 0;
                     }
                 }
 
@@ -73,18 +73,25 @@
         .team-member-card {
             @include media-breakpoint-down(xl) {
                 .team-member-card__content {
-                    --content-max-w: 90%;
+                    --content-max-w: 100%;
                 }
             }
 
             @include media-breakpoint-down(md) {
                 .team-member-card__content-flex {
                     flex-direction: column;
+                    align-items: center;
+                }
+            }
+            @include media-breakpoint-down(sm) {
+                .team-member-card__avatar {
+                    text-align: center;
+                }
+                .team-member-card__content {
+                    margin: 0px;
+                    margin-top: 10px;
                 }
             }
         }
     }
-
 }
-
-

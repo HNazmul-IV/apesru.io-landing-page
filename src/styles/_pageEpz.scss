@@ -1,0 +1,8 @@
+/* This Document Include All Epz pages Style rules */
+@use "./utils" as *;
+
+@mixin section-hero {
+    .hero-monkey {
+        width: c(300px, 31.25vw, 600px);
+    }
+}

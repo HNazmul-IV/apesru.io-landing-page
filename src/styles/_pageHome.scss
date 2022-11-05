@@ -24,10 +24,23 @@
         & > img {
             width: 100%;
         }
+
+        @include xs {
+            height: 500px;
+
+            & > img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
     }
 
     .hero-monkey {
         width: 43%;
+
+        @include xs {
+            width: 95%;
+        }
 
         & > img {
             width: 100%;
@@ -58,8 +71,8 @@
     }
 }
 
-@mixin section-gallery {
-    #nfts-gallery {
+@mixin section-nft-collection {
+    #nft-collection {
         padding: 5rem 0px;
         width: 100%;
         overflow-x: hidden;
@@ -264,6 +277,8 @@
             & > img {
                 width: 100%;
                 height: 100%;
+                object-fit: contain;
+                object-position: center bottom;
             }
         }
 
@@ -276,27 +291,36 @@
         .desc {
             p {
                 font-size: 20px;
+                @include media-breakpoint-down(md) {
+                    font-size: 16px;
+                }
 
                 @include media-breakpoint-down(sm) {
-                    font-size: 16px;
+                    font-size: 12px;
+                    line-height: 1.1em;
+                    font-weight: lighter;
+                    letter-spacing: 1px;
                 }
             }
         }
 
         .logo {
-            // width: c(150px,);
+            width: c(220px, 18.38vw, 355px);
         }
     }
 }
 
 @mixin section-video {
-    #video-section {
+    #video {
         padding: c(50px, 8.75vw, 168px) 0px;
         --video-radius: #{c(10px, 2.5vw, 40px)};
         & > .title > h1 {
             -webkit-text-stroke: 2px $warning;
             font-size: c(30px, 3.33vw, 64px);
             letter-spacing: 0.3em;
+            @include xs {
+                letter-spacing: initial;
+            }
         }
     }
 
@@ -313,9 +337,16 @@
             overflow: hidden;
             border: 5px solid transparentize($color: $warning, $amount: 0.3);
             box-shadow: 0px 4px 65px 11px rgba(250, 166, 28, 0.3);
-
             z-index: 1;
 
+            video.video{
+                width: 100%;
+            }
+
+            @include media-breakpoint-down(sm) {
+                box-shadow: 0px 4px 55px 0 rgb(250 166 28 / 30%);
+                border-width: 2px;
+            }
             .play-pause-icon {
                 position: absolute;
                 width: 20%;
@@ -551,12 +582,8 @@
 
 @mixin section-media {
     #media > .title {
-        h1 {
-            font-size: 24px;
-            line-height: 265.7%;
-            letter-spacing: 1.74em;
-            color: #d9d9d9;
-            padding: 5vw;
+        img {
+            width: c(250px, 19.64vw, 377px);
         }
     }
 
@@ -568,6 +595,10 @@
         border: 5px solid transparent;
         background: linear-gradient(90deg, #faa61c -0.9%, #750001 80.9%) border-box, linear-gradient(black, black) padding-box;
         cursor: pointer;
+
+        @include media-breakpoint-down(sm) {
+            border-width: 2px;
+        }
 
         &:hover {
             .card-content > .button > a {
@@ -608,18 +639,42 @@
             width: 100%;
             z-index: 2;
             transform: translateY(-40%);
+            @include media-breakpoint-down(md) {
+                top: 40%;
+            }
 
             .title > h1 {
-                font-size: c(25px, 2.5vw, 36px);
+                font-size: c(20px, 2.5vw, 36px);
+
+                @include media-breakpoint-down(md) {
+                    font-size: 16px;
+                }
             }
 
             .logos {
                 position: relative;
                 width: max-content;
                 height: 90px;
+                @include xs {
+                    height: 50px;
+                }
                 .logo {
                     position: absolute;
                     top: 50%;
+                    & > img {
+                        @include media-breakpoint-down(md) {
+                            max-width: 180px;
+                            max-height: 90px;
+                        }
+                        @include media-breakpoint-down(sm) {
+                            max-height: 50px;
+                            max-width: 120px;
+                        }
+                        @include xs {
+                            max-height: 30px;
+                            max-width: 80px;
+                        }
+                    }
                     &.logo-1 {
                         left: 0;
                         transform: translate(calc(-100% - 20px), -50%);
@@ -642,6 +697,15 @@
             display: inline-block;
             padding: 10px 30px;
             text-decoration: none;
+            @include media-breakpoint-down(sm) {
+                padding: 7px 20px;
+                font-size: 14px;
+                border-radius: 10px;
+            }
+            @include xs {
+                @include font-sans;
+                font-size: 12px;
+            }
         }
 
         @include media-breakpoint-down(sm) {
@@ -649,10 +713,6 @@
 
             .card-bg > img {
                 border-radius: 10px;
-            }
-
-            .card-content .title > h1 {
-                font-size: c(20px, 5vw, 35px);
             }
 
             .card-content .below-title > h1 {
@@ -664,7 +724,7 @@
 
 @mixin section-team {
     /* Team Card Component and Parent Component Related Responsive code is in Global  File */
-    #section-team {
+    #team {
         --border-width: 5px;
         --border-y: linear-gradient(90deg, rgba(250, 166, 28, 0) 1.24%, rgba(235, 33, 50, 0.5) 52.02%, rgba(250, 166, 28, 0) 100.92%);
     }
@@ -689,7 +749,7 @@
 
     .team-members-container {
         padding: 0 5vw 0px 5vw;
-        margin-top: -282px;
+        margin-top: c(-20px, -14.6875vw, -282px);
         position: relative;
         z-index: 2;
     }
@@ -705,14 +765,28 @@
         & > .container-1920 {
             padding: 0px c(10px, 6.979vw, 134px);
         }
-    }
-    .desc {
-        padding: 0px calc(100% / 12);
-        p {
-            font-size: 20px;
-            margin-bottom: 0px;
-            text-transform: uppercase;
-            line-height: 1.2em;
+        .left-monkey-card {
+            width: 100%;
+            max-width: 386px;
+        }
+
+        .desc {
+            padding: 0px calc(100% / 12);
+            p {
+                font-size: c(15px, 1.5vw, 20px);
+                margin-bottom: 0px;
+                text-transform: uppercase;
+                line-height: 1.2em;
+            }
+        }
+
+        @include media-breakpoint-down(xl) {
+            & > .container-1920 {
+                padding: 30px;
+            }
+            .desc {
+                padding: 0px;
+            }
         }
     }
 }
@@ -852,19 +926,28 @@
             position: relative;
             .small-title {
                 font-size: 32px;
+                @include media-breakpoint-down(sm) {
+                    font-size: 25px;
+                }
             }
             .main-title {
                 font-size: 48px;
                 -webkit-text-stroke: 1px #faa61c;
+                @include media-breakpoint-down(sm) {
+                    font-size: 40px;
+                }
             }
         }
 
         .gif-image-container .gif-image-wrapper {
             text-align: center;
             margin-top: -40px;
+            @include media-breakpoint-down(md) {
+                margin-top: -10px;
+            }
             .gif-image {
                 max-width: 759px;
-                width: 759px;
+                width: 100%;
                 display: inline-block;
                 & > img {
                     width: 100%;
@@ -876,11 +959,12 @@
 
 @mixin footer {
     #footer {
+        margin-top: auto;
         .footer-area {
             background: var(--bg-img) no-repeat center center / cover;
         }
         .footer-logo {
-            width: 353px;
+            width: c(200px, 18.38vw, 353px);
         }
         .footer-container {
             padding: 0px 7.96vw;
@@ -888,12 +972,25 @@
 
         .footers-links {
             gap: 20px;
+
+            @include xs {
+                gap: 0px;
+            }
+
             .nav-item {
                 .nav-link {
                     font-size: 22px;
                     color: white;
                     &:hover {
                         color: $warning;
+                    }
+
+                    @include media-breakpoint-down(md) {
+                        font-size: 18px;
+                    }
+
+                    @include xs {
+                        font-size: 14px;
                     }
                 }
             }

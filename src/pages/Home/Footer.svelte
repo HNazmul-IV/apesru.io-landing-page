@@ -30,11 +30,11 @@
     <div class="footer-area">
         <div class="footer-container container-2k">
             <div class="row py-5 align-items-center w-100">
-                <div class="col-lg-6">
+                <div class="col-lg-6 text-center">
                     <img src="{LOGO_APESRU}" class="footer-logo" alt="" />
                 </div>
                 <div class="col-lg-6">
-                    <ul class="nav footers-links justify-content-end align-items-center">
+                    <ul class="nav footers-links justify-content-center justify-content-lg-end align-items-center">
                         {#each footerLinks as link}
                             <li class="nav-item">
                                 <a class="nav-link active" href="{link.link}">{link.label}</a>

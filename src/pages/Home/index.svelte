@@ -15,7 +15,6 @@
     import SectionAbout2 from "./SectionAbout2.svelte";
 </script>
 
-<Navbar />
 <SectionHero />
 <SectionAbout />
 <SectionNFTGallery />
@@ -27,4 +26,3 @@
 <SectionBrandingGallery />
 <SectionMediaLove />
 <SectionAruVerse />
-<Footer />

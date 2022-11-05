@@ -28,7 +28,7 @@
 
 <div id="{data.id}" class="team-member-card" class:smallCard>
     <div class="team-member-card__wrapper">
-        <div class="d-flex align-items-center team-member-card__content-flex">
+        <div class="d-flex {smallCard ? "align-items-center align-items-lg-start": "align-items-center align-items-md-start align-items-xxl-center"} team-member-card__content-flex">
             <div class="team-member-card__avatar">
                 <img loading="lazy" src="{data.avatar}" alt="" />
             </div>

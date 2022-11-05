@@ -1,13 +1,19 @@
 <script lang="ts">
     import Collapse from "bootstrap/js/dist/collapse";
+    import { hashNavigate, navigate, slugs } from "../script/Router";
+    import { fade } from "svelte/transition";
     import { onMount } from "svelte";
     import LOGO from "../assets/images/logo.png";
 
     let shrink = false;
     let navbar: HTMLElement;
     let navCollapse: Collapse;
+    const shrinkNavbar = () => (shrink = window.scrollY > 50);
+    shrinkNavbar();
 
-    onMount(() => window.addEventListener("scroll", () => (shrink = window.scrollY > 50)));
+    $: console.log("/" + $slugs[0]);
+
+    onMount(() => window.addEventListener("scroll", shrinkNavbar));
     onMount(() => {
         let navbarCollapseElement = document.getElementById("nav-item-collapse");
         navCollapse = new Collapse("#nav-item-collapse", {
@@ -17,46 +23,63 @@
         navbarCollapseElement.addEventListener("hidden.bs.collapse", () => navbar.classList.remove("dynamic-border"));
         window.addEventListener("resize", () => navCollapse.hide());
     });
+
     const navbarLinkdata = [
         {
             name: "Home",
-            link: "/#",
+            link: "/",
             colorProfile: "danger d-lg-none d-xxl-block ",
+            separatePage: true,
+            pageSlug: "all",
         },
         {
             name: "About",
-            link: "/#",
+            link: "/#about",
             colorProfile: "warning",
+            separatePage: false,
+            pageSlug: "/",
         },
         {
             name: "NFT&nbsp;Collection",
-            link: "/#",
+            link: "/#nft-collection",
             colorProfile: "success",
+            separatePage: false,
+            pageSlug: "/",
         },
         {
             name: "Partners ",
-            link: "/#",
+            link: "/#partners",
             colorProfile: "info",
+            separatePage: false,
+            pageSlug: "/",
         },
         {
             name: "Roadmap&nbsp;2.0",
-            link: "/#",
+            link: "/#roadmap",
             colorProfile: "primary",
+            separatePage: false,
+            pageSlug: "/",
         },
         {
             name: "Promo&nbsp;Video",
-            link: "/#",
+            link: "/#video",
             colorProfile: "danger",
+            separatePage: false,
+            pageSlug: "/",
         },
         {
             name: "Team",
-            link: "/#",
+            link: "/#team",
             colorProfile: "warning",
+            separatePage: false,
+            pageSlug: "/",
         },
         {
             name: "epz",
-            link: "/#",
+            link: "/epz",
             colorProfile: "primary",
+            separatePage: true,
+            pageSlug: "/epz",
         },
     ];
 </script>
@@ -75,8 +98,14 @@
         <div class="collapse navbar-collapse" id="nav-item-collapse">
             <ul class="navbar-nav ms-auto px-3F py-5 py-lg-0" on:click="{() => window.innerWidth < 992 && navCollapse.hide()}">
                 {#each navbarLinkdata as link}
-                    <li class="nav-item">
-                        <a href="{link.link}" class="nav-link fw-bold text-center text-lg-start   text-{link.colorProfile} text-uppercase">{@html link.name}</a>
+                    <li class="nav-item" in:fade>
+                        {#if true}
+                            <!-- svelte-ignore a11y-invalid-attribute -->
+                            <button on:click|preventDefault="{() => hashNavigate(link.link)}" class="nav-link fw-bold text-center text-lg-start btn  text-{link.colorProfile} text-uppercase"
+                                >{@html link.name}</button>
+                        {:else}
+                            <a href="" class="nav-link fw-bold text-center text-lg-start   text-{link.colorProfile} text-uppercase">{@html link.name}</a>
+                        {/if}
                     </li>
                 {/each}
             </ul>
@@ -100,6 +129,16 @@
         transition: var(--base-transition);
         z-index: $nav-z-index;
         background: black;
+
+        .nav-link {
+            border: none;
+            background: transparent;
+            text-align: center;
+
+            @include media-breakpoint-down(lg) {
+                width: 100%;
+            }
+        }
 
         .logo {
             height: 75px;

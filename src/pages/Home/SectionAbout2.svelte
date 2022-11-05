@@ -4,13 +4,13 @@
 
 <section id="about-2">                                                                 
     <div class="container-1920">
-        <div class="row w-100 align-items-center ">
-            <div class="col-4 flex-shrink-0">
-                <div class="text-center">
-                    <img src="{IMG_MONKEY}" alt="" class="w-full" />
+        <div class="row col-sm-10 col-md-12 mx-auto text-center text-md-start align-items-center justify-content-lg-between">
+            <div class="col-md-5 col-xl-4 flex-shrink-0">
+                <div class="text-center left-monkey-card mx-auto mb-3 mb-md-0 ">
+                    <img src="{IMG_MONKEY}" alt="" class="w-100" />
                 </div>
             </div>
-            <div class="col-8 ">
+            <div class="col-md-7 col-xl-8">
                 <div class="desc text-white">
                     <p class="mb-3">
                         We as a company feel a corporate responsibility to give back, whether it’s to the community or to give back to causes that matter to us and have an impact on the world no

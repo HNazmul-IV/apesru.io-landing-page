@@ -17,9 +17,16 @@
         --brief-fsz: 12px;
         --avatar-radius: 8rem;
 
+        @include media-breakpoint-down(sm) {
+            --brief-fsz: 10px;
+        }
+
         @include media-breakpoint-down(xl) {
             --avatar-width: 300px;
             --avatar-radius: 3rem;
+        }
+        @include media-breakpoint-down(lg) {
+            --avatar-width: 250px;
         }
         &__avatar {
             width: var(--avatar-width);
@@ -41,6 +48,11 @@
             width: var(--content-max-w);
             margin: var(--content-ml);
             order: var(--content-order);
+
+            @include media-breakpoint-down(xxl) {
+                margin-top: 0px;
+            }
+
             &-name {
                 font-size: var(--name-fsz);
                 line-height: 0.9em;
@@ -69,16 +81,9 @@
         --subtitle-fsz: 17px;
         --brief-fsz: 10px;
 
-        @include media-breakpoint-down(md) {
-            --name-fsz: 30px;
-            --subtitle-stroke-w: 0.5px;
-            --brief-fsz: 8px;
-            --subtitle-fsz: 12px;
-        }
-
         @include media-breakpoint-down(lg) {
             --avatar-radius: 1rem;
-            --name-fsz: 30px;
+            --name-fsz: #{c(18px, 3vw, 30px)};
             --subtitle-fsz: 14px;
             --content-ml: 0px;
             --avatar-width: 100%;
@@ -86,6 +91,10 @@
             .team-member-card__content-flex {
                 flex-wrap: wrap;
                 flex-direction: column;
+            }
+            .team-member-card__content{
+                margin-top: 2vw;
+                text-align: center;
             }
         }
 
@@ -96,6 +105,20 @@
 
         .team-member-card__content-name {
             letter-spacing: 2px;
+        }
+
+        @include media-breakpoint-down(md) {
+            --name-fsz: 23px;
+            --subtitle-stroke-w: 0.5px;
+            --brief-fsz: 8px;
+            --subtitle-fsz: 12px;
+            .team-member-card__content {
+                text-align: center;
+                margin-top: 2vw;
+            }
+        }
+        @include media-breakpoint-down(sm) {
+            --name-fsz: 18px;
         }
     }
 }

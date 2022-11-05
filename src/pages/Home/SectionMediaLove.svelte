@@ -10,7 +10,12 @@
 
     let swiperOptions: SwiperOptions = {
         breakpoints: {
-            400: {
+            320: {
+                spaceBetween: 20,
+                slidesPerView: 1.13,
+                centeredSlides: false,
+            },
+            490: {
                 spaceBetween: 20,
                 slidesPerView: 1.3,
                 centeredSlides: false,
@@ -65,10 +70,10 @@
                                         <img src="{data.logo2}" alt="" />
                                     </div>
                                 </div>
-                                <div class="title text-center mt-5">
+                                <div class="title text-center mt-2 mt-md-5">
                                     <h1 class="text-light text-uppercase">{@html data.title}</h1>
                                 </div>
-                                <div class="button text-center mt-5 pt-3">
+                                <div class="button text-center mt-0 mt-md-5 pt-0 pt-">
                                     <a href="{data.buttonLink}" target="_blank">Dig The Deal</a>
                                 </div>
                             </div>

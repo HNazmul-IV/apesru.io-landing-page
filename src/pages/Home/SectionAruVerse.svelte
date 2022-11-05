@@ -5,7 +5,7 @@
 
 <section id="aru-verse" class="">
     <div class="title text-center">
-        <h2 class="small-title text-white">Join us as we venture around</h2>
+        <h2 class="small-title text-white mb-0 mb-sm-2">Join us as we venture around</h2>
         <h1 class="main-title text-black text-uppercase">the ARUverse</h1>
     </div>
 

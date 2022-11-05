@@ -10,9 +10,9 @@ import NFT_9 from "../assets/nfts/9.png";
 import NFT_10 from "../assets/nfts/10.png";
 import NFT_11 from "../assets/nfts/11.png";
 import NFT_12 from "../assets/nfts/12.png";
-import { writable } from "svelte/store";
+import { readable } from "svelte/store";
 
-export default writable([
+export default readable([
     {
         img: NFT_1,
         class: "nft nft-1 ",
@@ -21,7 +21,7 @@ export default writable([
     },
     {
         img: NFT_2,
-        class: "nft nft-2 active",
+        class: "nft nft-2",
         positionX: 44,
         positionY: 0,
     },
@@ -88,7 +88,7 @@ export default writable([
     },
     {
         img: NFT_12,
-        class: "nft nft-12 ",
+        class: "nft nft-12 active",
         positionX: 91.3,
         positionY: 46,
 
