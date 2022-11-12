@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 </script>
 
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 364">
+<svg on:click xmlns="http://www.w3.org/2000/svg" viewBox="0 0 370 364">
     <g id="Layer_2" data-name="Layer 2">
         <g id="Play-pause-icon">
             <g id="circle">

@@ -92,7 +92,7 @@
                 flex-wrap: wrap;
                 flex-direction: column;
             }
-            .team-member-card__content{
+            .team-member-card__content {
                 margin-top: 2vw;
                 text-align: center;
             }
@@ -120,5 +120,12 @@
         @include media-breakpoint-down(sm) {
             --name-fsz: 18px;
         }
+    }
+}
+
+@mixin global-image-viewer {
+    .global-image-slider,
+    .global-image-viewer {
+        z-index: $nav-z-index + 5;
     }
 }

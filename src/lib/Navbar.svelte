@@ -31,6 +31,9 @@
             colorProfile: "danger d-lg-none d-xxl-block ",
             separatePage: true,
             pageSlug: "all",
+            onClick() {
+                scrollTo({ top: 0 });
+            },
         },
         {
             name: "About",
@@ -80,6 +83,9 @@
             colorProfile: "primary",
             separatePage: true,
             pageSlug: "/epz",
+            onClick() {
+                scrollTo({ top: 0 });
+            },
         },
     ];
 </script>
@@ -99,13 +105,11 @@
             <ul class="navbar-nav ms-auto px-3F py-5 py-lg-0" on:click="{() => window.innerWidth < 992 && navCollapse.hide()}">
                 {#each navbarLinkdata as link}
                     <li class="nav-item" in:fade>
-                        {#if true}
-                            <!-- svelte-ignore a11y-invalid-attribute -->
-                            <button on:click|preventDefault="{() => hashNavigate(link.link)}" class="nav-link fw-bold text-center text-lg-start btn  text-{link.colorProfile} text-uppercase"
-                                >{@html link.name}</button>
-                        {:else}
-                            <a href="" class="nav-link fw-bold text-center text-lg-start   text-{link.colorProfile} text-uppercase">{@html link.name}</a>
-                        {/if}
+                        <button
+                            on:click|preventDefault="{() => (hashNavigate(link.link), setTimeout(link?.onClick, 100))}"
+                            class="nav-link fw-bold text-center text-lg-start btn  text-{link.colorProfile} text-uppercase">
+                            {@html link.name}
+                        </button>
                     </li>
                 {/each}
             </ul>
