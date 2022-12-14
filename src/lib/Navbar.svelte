@@ -102,7 +102,7 @@
                 ></svg>
         </button>
         <div class="collapse navbar-collapse" id="nav-item-collapse">
-            <ul class="navbar-nav ms-auto px-3F py-5 py-lg-0" on:click="{() => window.innerWidth < 992 && navCollapse.hide()}">
+            <ul class="navbar-nav mx-auto px-3F py-5 py-lg-0" on:click="{() => window.innerWidth < 992 && navCollapse.hide()}">
                 {#each navbarLinkdata as link}
                     <li class="nav-item" in:fade>
                         <button
@@ -133,6 +133,9 @@
         transition: var(--base-transition);
         z-index: $nav-z-index;
         background: black;
+        .navbar-nav {
+            transform: translateX(-100px);
+        }
 
         .nav-link {
             border: none;
@@ -147,6 +150,9 @@
         .logo {
             height: 75px;
             transition: var(--base-transition);
+            // transform: translate(700px, 400px);
+            opacity: 0;
+            pointer-events: none;
             @include media-breakpoint-down(lg) {
                 height: 60px;
             }
@@ -159,9 +165,9 @@
                 padding: 0.5rem 5rem !important;
                 border: none !important;
             }
-            .logo {
-                height: 50px;
-            }
+            // .logo {
+            //     height: 50px;
+            // }
         }
 
         @include media-breakpoint-up(lg) {

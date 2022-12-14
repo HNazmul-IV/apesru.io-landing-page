@@ -21,6 +21,11 @@
     .header-bg {
         width: 100%;
 
+        .header-bg-video {
+            pointer-events: none;
+            width: 100%;
+            aspect-ratio: 16/9;
+        }
         & > img {
             width: 100%;
         }
@@ -339,10 +344,10 @@
             box-shadow: 0px 4px 65px 11px rgba(250, 166, 28, 0.3);
             z-index: 1;
 
-            video.video{
+            video.video {
                 width: 100%;
             }
-            
+
             @include media-breakpoint-down(sm) {
                 box-shadow: 0px 4px 55px 0 rgb(250 166 28 / 30%);
                 border-width: 2px;
