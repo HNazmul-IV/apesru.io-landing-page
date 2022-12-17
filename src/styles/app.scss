@@ -29,12 +29,11 @@ body {
     width: 100%;
     overflow-x: hidden;
 }
-body{
+body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
-
 
 .font-sans {
     font-family: "Red Hat Display", sans-serif;
@@ -87,5 +86,33 @@ $object-position: (
             #{$class}-width: $width !important;
             background: var(--background) padding-box, #{$border} border-box;
         }
+    }
+}
+
+@keyframes spinning {
+    0% {
+        transform: rotate(0turn);
+    }
+    100% {
+        transform: rotate(1turn);
+    }
+}
+
+
+@keyframes home-screen-progressbar-loading{
+    0%{
+        width:0%;
+    }
+    20%{
+        width:10%;
+    }
+    50%{
+        width: 50%;
+    }
+    70%{
+        width: 60%;
+    }
+    100%{
+        width:100%;
     }
 }

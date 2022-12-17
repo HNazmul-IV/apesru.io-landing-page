@@ -12,7 +12,7 @@
     <div class="gif-image-container">
         <div class="gif-image-wrapper pb-5">
             <div class="gif-image ">
-                <video controls="{false}" class="w-100" src="{VIDEO_ROTATING_HEAD}" autoplay="{true}" loop="{true}" poster="{IMG_ROTATING_HEAD_STATIC}">
+                <video controls="{false}" class="w-100" src="{VIDEO_ROTATING_HEAD}" muted autoplay="{true}" loop="{true}" poster="{IMG_ROTATING_HEAD_STATIC}">
                     <track kind="captions" />
                 </video>
             </div>

@@ -16,6 +16,73 @@
         @include media-breakpoint-down(lg) {
             margin-top: 4rem;
         }
+        @include media-breakpoint-down(sm) {
+            &::before {
+                content: "";
+                width: 100%;
+                height: 15%;
+                position: absolute;
+                bottom: 25%;
+                // border: white solid 1px;
+                background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 0.01%, #000000 100%);
+            }
+        }
+    }
+    .spinner-logo {
+        position: absolute;
+        top: 3%;
+        left: 50%;
+        transform: translateX(-50%);
+        & > img {
+            animation: spinning 3s infinite linear;
+        }
+    }
+    .hero-bg-content {
+        width: clamp(280px, 24.21875vw, 465px);
+        position: absolute;
+        bottom: 15.9259259%;
+        @include media-breakpoint-down(sm) {
+            bottom: 5%;
+            width: 150px;
+        }
+
+        .logo {
+            width: 100%;
+            margin-bottom: clamp(50px, 8.958333333333333vw, 172px);
+            position: relative;
+            @include media-breakpoint-down(md) {
+                margin-bottom: clamp(30px, 5.958333333333333vw, 80px);
+            }
+            @include media-breakpoint-down(sm) {
+                margin-bottom: 20px;
+            }
+        }
+        .text {
+            p {
+                line-height: 1.1em;
+                text-transform: uppercase;
+                text-align: center;
+                &.yellow-text {
+                    font-size: 20px;
+                    color: #000000 !important;
+                    -webkit-text-stroke: 1px $warning;
+                    letter-spacing: 2px;
+                }
+            }
+
+            @include media-breakpoint-down(sm) {
+                .lets-go,
+                .apes-ru {
+                    font-size: 20px;
+                }
+            }
+        }
+        .down-svg {
+            width: 18px;
+            @include media-breakpoint-down(sm) {
+                width: 20px;
+            }
+        }
     }
 
     .header-bg {
@@ -24,15 +91,17 @@
         .header-bg-video {
             pointer-events: none;
             width: 100%;
-            aspect-ratio: 16/9;
+            user-select: none;
+
+            @include media-breakpoint-down(sm) {
+                aspect-ratio: 4 / 8.65;
+            }
         }
         & > img {
             width: 100%;
         }
 
         @include xs {
-            height: 500px;
-
             & > img {
                 height: 100%;
                 object-fit: cover;
@@ -337,7 +406,7 @@
             width: 95%;
 
             position: relative;
-            aspect-ratio: 16/9.252;
+            aspect-ratio: 16/9;
             border-radius: var(--video-radius);
             overflow: hidden;
             border: 5px solid transparentize($color: $warning, $amount: 0.3);

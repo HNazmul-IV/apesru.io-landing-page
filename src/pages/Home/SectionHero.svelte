@@ -1,11 +1,10 @@
 <script lang="ts">
+    import { onMount, tick } from "svelte";
     import { slugs } from "./../../script/Router";
-    import IMG_HERO_BG from "../../assets/images/hero-bg.png";
     import IMG_HERO_MONKEY from "../../assets/images/hero-monkey.png";
-    import IMG_WALKING_MONKEY from "../../assets/images/walking-monkey.gif";
-    import IMG_LEFT_SIDE_MONKEY from "../../assets/images/hero-left-side-monkey.png";
-    import IMG_RIGHT_SIDE from "../../assets/images/hero-right-side.png";
     import LOGO_APESRU from "../../assets/images/logo.png";
+    import IMG_SPINNING_LOGO from "../../assets/images/spinning-logo.svg";
+    import IMG_MOBILE_VIDEO_POSTER from "../../assets/images/mobile-video-poster.png";
 
     export let id = "hero-section";
     export let page = "homepage";
@@ -14,6 +13,26 @@
     export let underSection = false;
     export let _sectionClass = "";
     export let bgType: "img" | "video" = "video";
+    let videoElement: null | HTMLVideoElement;
+
+    async function changingVideoDynamically() {
+        let userAgentBeforeResize = window.navigator.userAgent;
+        async function changeElement() {
+            if (window.innerWidth < 575) {
+                videoElement.poster = IMG_MOBILE_VIDEO_POSTER;
+                await tick();
+                videoElement.src = "https://cdn.discordapp.com/attachments/1019526578398572554/1052918804918837339/Responsive_landing.mp4";
+            } else {
+                videoElement.src = background;
+                videoElement.poster = "";
+            }
+        }
+        //If Device is Not a mobile Device then Event will call;
+        if (/Mobi/.test(window.navigator.userAgent) !== true) window.addEventListener("resize", changeElement);
+        changeElement();
+    }
+
+    onMount(changingVideoDynamically);
 </script>
 
 <header id="{id}" data-page="{page}" class=" {_sectionClass}">
@@ -22,40 +41,30 @@
             <div class="hero-section-wrapper position-relative">
                 <div class="header-bg">
                     {#if bgType === "img"}
-                        <img src="{background}" alt="Apesrus hedare background" />
+                        <img src="{background}" alt="Apesrus header background" />
                     {:else if bgType === "video"}
-                        <video class="header-bg-video" loop autoplay="{true}" muted="{true}" src="{background}"></video>
+                        <video class="header-bg-video" bind:this="{videoElement}" loop autoplay="{true}" muted="{true}" src="{background}"> </video>
                     {/if}
                 </div>
 
                 <slot name="middle-img" />
-                {#if false}
-                    <div class="position-absolute text-white border bottom-0 start-0 w-100 border-white">
-                        <div class="d-flex w-100 border border-danger justify-content-between align-items-end">
-                            <div class="">
-                                <!-- <img src="{IMG_LEFT_SIDE_MONKEY}" alt="apesru-monkey" /> -->
-                            </div>
-                            <div class="text-center">
-                                <div class="">
-                                    <img src="{LOGO_APESRU}" alt="" />
-                                </div>
-                                <div class="">
-                                    <p>Apes Are the Best ?</p>
-                                    <div class="text-warning">
-                                        <h4 class="">Let's Go</h4>
-                                        <h3 class="">ApesRu</h3>
-                                    </div>
-                                </div>
-                                <div class="">
-                                    <svg width="39" height="26" viewBox="0 0 39 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0.499999 7.09091L19.4091 26L38.3182 7.09091L31.2273 5.64217e-07L19.4091 11.8182L7.59091 1.5974e-06L0.499999 7.09091Z" fill="white" fill-opacity="0.5"
-                                        ></path>
-                                    </svg>
-                                </div>
-                            </div>
-                            <div class="">
-                                <!-- <img src="{IMG_RIGHT_SIDE}" alt="apesru-light" /> -->
-                            </div>
+                {#if $slugs[0] === ""}
+                    <div class="spinner-logo d-sm-none">
+                        <img src="{IMG_SPINNING_LOGO}" alt="" />
+                    </div>
+                    <div class="hero-bg-content">
+                        <div class="logo home-page-hero-logo">
+                            <img src="{LOGO_APESRU}" alt="" class="w-100" />
+                        </div>
+                        <div class="text text-center" data-gsap="header-lets-go-text">
+                            <p class="white-text text-white mb-2">Creating Apes <br />Since 2012</p>
+                            <p class="yellow-text text-warning mb-0">More <br />Aru</p>
+                        </div>
+                        <div class="text-center">
+                            <svg data-gsap="heroSection-down-svg-arrow" class="down-svg" viewBox="0 0 39 26" fill="white" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M0.499999 7.09091L19.4091 26L38.3182 7.09091L31.2273 -1.51039e-07L19.4091 11.8182L7.59091 8.82139e-07L0.499999 7.09091Z" fill="inherit" fill-opacity="1">
+                                </path>
+                            </svg>
                         </div>
                     </div>
                 {/if}
@@ -67,7 +76,7 @@
         <div class="walking-monkey theme-border border-bottom">
             <div class="walking-monkey__area">
                 <div class="walking-monkey__image">
-                    <img src="{IMG_WALKING_MONKEY}" alt="" class="w-100" />
+                    <!-- <img src="{IMG_WALKING_MONKEY}" alt="" class="w-100" /> -->
                 </div>
                 <div class="behind-text">
                     <h3 class="text text-muted">Apesru On the Go</h3>

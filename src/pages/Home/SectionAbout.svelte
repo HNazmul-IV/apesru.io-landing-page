@@ -15,7 +15,7 @@
         </div>
         <div class="col-12 col-xl-6 col-lg-6 offset-lg-1 offset-xl-0 p-0 about-desc align-self-center">
             <div class="col-11 text-center text-lg-start col-lg-12 col-xl-10 mx-auto mx-lg-0">
-                <div class="logo mx-auto mb-2">
+                <div class="logo mx-auto mx-lg-0  mb-5">
                     <img src="{LOGO}" alt="" class="w-100" />
                 </div>
                 <div class="desc text-white ">

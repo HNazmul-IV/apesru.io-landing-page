@@ -5,7 +5,7 @@
 </script>
 
 <!-- Using Homepage Hero section For Avoiding Duplication -->
-<HomePage_SectionHero bgImg="{IMG_HERO_BG}" page="epz" id="epz-hero" _sectionClass="mb-0">
+<HomePage_SectionHero background="{IMG_HERO_BG}" bgType="img" page="epz" id="epz-hero" _sectionClass="mb-0">
     <svelte:fragment slot="middle-img">
         <div style="" class="hero-monkey position-absolute">
             <img src="{IMG_HERO_MIDDLE}" class="w-100" alt="" />

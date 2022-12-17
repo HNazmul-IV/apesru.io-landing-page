@@ -8,6 +8,7 @@
     let videoElement: HTMLVideoElement;
     let videoState: "play" | "pause" = "pause";
     let videoMuted = true;
+    let videoSrc = `https://cdn.discordapp.com/attachments/1019526578398572554/1053441714246930502/Katun_44sec_Final_1.mp4`;
 
     // const unMuteVideo = ((element:HTMLVideoElement) => element.muted = false)
     async function controlVideo() {
@@ -45,7 +46,7 @@
     <div class="video-area">
         <div class="video-container mx-auto">
             <!-- <img loading="{'lazy'}" src="{IMG_VIDEO_THUMB}" class="w-100" alt="" /> -->
-            <video bind:this="{videoElement}" class="video observe" src="/assets/nft-promos.mp4" muted="{videoMuted}" data-case="observe" preload="auto" poster="{IMG_VIDEO_THUMB}">
+            <video bind:this="{videoElement}" class="video observe" src="{videoSrc}" muted="{videoMuted}" data-case="observe" preload="auto" poster="{IMG_VIDEO_THUMB}">
                 <track kind="captions" />
             </video>
             {#if videoState === "pause"}

@@ -9,9 +9,7 @@
     let navbar: HTMLElement;
     let navCollapse: Collapse;
     const shrinkNavbar = () => (shrink = window.scrollY > 50);
-    shrinkNavbar();
-
-    $: console.log("/" + $slugs[0]);
+    shrinkNavbar(); 
 
     onMount(() => window.addEventListener("scroll", shrinkNavbar));
     onMount(() => {
@@ -92,7 +90,7 @@
 
 <nav class="navbar navbar-expand-lg position-fixed    w-100 top-0 start-0 p-0 px-3 p-lg-0" class:shrink bind:this="{navbar}">
     <div class="container-fluid p-1 p-md-2">
-        <a class="navbar-brand text-light fw-normal" href="/#"><img class="logo" src="{LOGO}" alt="APESRUS Brand Logo" /></a>
+        <a class="navbar-brand text-light fw-normal" href="/#"><img class="logo" data-gsap="navbar-logo" src="{LOGO}" alt="APESRUS Brand Logo" /></a>
         <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#nav-item-collapse">
             <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 512 512"
                 ><path
@@ -135,6 +133,9 @@
         background: black;
         .navbar-nav {
             transform: translateX(-100px);
+            @include media-breakpoint-down(lg) {
+                transform: translateX(0px);
+            }
         }
 
         .nav-link {
@@ -150,11 +151,15 @@
         .logo {
             height: 75px;
             transition: var(--base-transition);
-            // transform: translate(700px, 400px);
+            // transform: translate(39.78645833333333vw, 25.625vw) scale(2.2);
             opacity: 0;
             pointer-events: none;
             @include media-breakpoint-down(lg) {
                 height: 60px;
+            }
+            @include media-breakpoint-down(sm) {
+                opacity: 1;
+                pointer-events: all;
             }
         }
 
@@ -165,9 +170,11 @@
                 padding: 0.5rem 5rem !important;
                 border: none !important;
             }
-            // .logo {
-            //     height: 50px;
-            // }
+            @include xs {
+                .logo {
+                    height: 50px;
+                }
+            }
         }
 
         @include media-breakpoint-up(lg) {
