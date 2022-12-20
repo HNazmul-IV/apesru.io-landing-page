@@ -1,18 +1,21 @@
 <script lang="ts">
     import { scale } from "svelte/transition";
-    import { onMount } from "svelte";
+    import { onMount, tick } from "svelte";
     import PlayPauseIcon from "../../assets/icon/play-pause-icon.svelte";
     import IMG_VIDEO_THUMB from "../../assets/images/video-thumbnail.png";
-    import type { InterSectingDetails } from "../../script/element-details";
+    import { initiateObserver, type InterSectingDetails } from "../../script/element-details";
 
     let videoElement: HTMLVideoElement;
     let videoState: "play" | "pause" = "pause";
     let videoMuted = true;
     let videoSrc = `https://cdn.discordapp.com/attachments/1019526578398572554/1053441714246930502/Katun_44sec_Final_1.mp4`;
 
-    // const unMuteVideo = ((element:HTMLVideoElement) => element.muted = false)
     async function controlVideo() {
         let { addEvent } = await import("../../script/element-details");
+
+        videoElement.addEventListener("intersecting", function (e: CustomEvent<InterSectingDetails>) {
+            console.log(e.detail.isInterSecting);
+        });
 
         addEvent(videoElement, "intersecting", function (e: CustomEvent<InterSectingDetails>) {
             console.log(e.detail.isInterSecting);
@@ -33,7 +36,11 @@
     }
 
     try {
-        onMount(controlVideo);
+        onMount(async () => {
+            controlVideo();
+            await tick();
+            initiateObserver();
+        });
     } catch (e) {
         console.log(e);
     }
@@ -46,7 +53,7 @@
     <div class="video-area">
         <div class="video-container mx-auto">
             <!-- <img loading="{'lazy'}" src="{IMG_VIDEO_THUMB}" class="w-100" alt="" /> -->
-            <video bind:this="{videoElement}" class="video observe" src="{videoSrc}" muted="{videoMuted}" data-case="observe" preload="auto" poster="{IMG_VIDEO_THUMB}">
+            <video bind:this="{videoElement}" class="video observe" src="{videoSrc}" muted="{videoMuted}" data-use-case="observer" preload="auto" poster="{IMG_VIDEO_THUMB}">
                 <track kind="captions" />
             </video>
             {#if videoState === "pause"}

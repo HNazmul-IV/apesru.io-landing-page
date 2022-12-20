@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev-will": "vite --host lab-dev.d-0.io --port 7000",
-    "dev-naz": "vite --host lab-dev.d-0.io --port 7001",
+    "dev-naz": "vite --host lab.naz.nz --port 7001",
     "build": "vite build",
     "preview": "vite preview --host lab-dev.d-0.io --port 7001",
     "check": "svelte-check --tsconfig ./tsconfig.json"

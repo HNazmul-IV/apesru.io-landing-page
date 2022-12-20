@@ -4,14 +4,17 @@
     let gsap: GSAP,
         progressbarInner: HTMLSpanElement,
         progressFinish: boolean = false,
-        isWindowLoaded: boolean = false;
+        isWindowLoaded: boolean = false,
+        netEffectiveType: string = "3g";
+
+    $: console.log(`document loaded ${isWindowLoaded}`);
 
     //For Quick Selecting HTMLElement;
     const select = <T>(query: string): T => document.querySelector(query) as any;
 
     function animate() {
         let tl = gsap.timeline({ defaults: { duration: 0.5 } });
-        tl.to(".loading-screen__gif > img", { y: -700, x: -260, opacity: 0.1, duration: 1.5, ease: "power3.out" })
+        tl.to(".loading-screen__gif > img", { x: -260, opacity: 0, duration: 0.3, ease: "power3.out" })
             .to(".loading-text", { y: 100, opacity: 0, onComplete: () => (select<HTMLParagraphElement>(".loading-text").innerText = "Loading Finished.") }, "<")
             .to(".loading-text", { y: 0, opacity: 1 }, 1)
             .to(".loading-text", { y: `-${window.innerHeight}px`, opacity: 0, duration: 1 }, 3)
@@ -23,10 +26,11 @@
     function handleProgress() {
         //Event on ProgressBar animation Finished;
         select<HTMLSpanElement>(".progress-bar-inner").addEventListener("animationend", function () {
-            if (isWindowLoaded) {
+            console.log("animation Finished");
+            if (isWindowLoaded || document.readyState === "complete") {
                 animate();
             } else {
-                window.addEventListener("load", animate);
+                window.addEventListener<keyof WindowEventMap>("load", animate);
             }
         });
     }
@@ -50,7 +54,8 @@
                     <p class="loading-text">ApesRu Loading ...</p>
                 </div>
                 <div class="loading-screen__loading-progress">
-                    <div class="progress-bar"><span class="progress-bar-inner"></span></div>
+                    <!-- <div class="progress-bar"><span class="progress-bar-inner" style="animation-duration: {netEffectiveType === '3g' ? '15s' : netEffectiveType === '2g' ? '25s' : '5s'}"></span></div> -->
+                    <div class="progress-bar"><span class="progress-bar-inner" style="animation-duration: 3s"></span></div>
                 </div>
             </div>
         </div>

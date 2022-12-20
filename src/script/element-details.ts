@@ -23,22 +23,13 @@ const observerCallback: IntersectionObserverCallback = function (entries, observ
     });
 };
 
-addEventListener("load", function () {
-    //setting Intersection Observer;
+export function initiateObserver() {
     observer = new IntersectionObserver(observerCallback);
-    allObServerElement = document.querySelectorAll(`[data-case="observe"]`);
+    allObServerElement = document.querySelectorAll(`[data-use-case="observer"]`);
     allObServerElement.forEach((element) => observer.observe(element));
-
-    console.log(observer);
-});
-
-export function in_viewport(element: Element) {
-    // if (!element.getAttribute("data-case")) throw new Error(`Fo checking element is in viewport you have to set attribute data-case="observe"`);
-    // element.addEventListener("intersecting", function (e: InterSectingEvent) {
-    //     console.log(e);
-    //     return e.detail.isInterSecting;
-    // });
 }
+
+addEventListener("load", initiateObserver);
 
 export interface CustomEventMap {
     intersecting: CustomEvent;
@@ -51,7 +42,6 @@ export type AllEventType =
     | keyof AnimationEventMap
     | keyof HTMLMediaElementEventMap
     | keyof CustomEventMap;
-    
 
 export function addEvent(element: Element | Node, type: AllEventType, callback: EventListenerOrEventListenerObject, options?: AddEventListenerOptions) {
     element.addEventListener(type, callback);

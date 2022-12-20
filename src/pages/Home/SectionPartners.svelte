@@ -1,8 +1,8 @@
 <script lang="ts">
     import LOGO_1 from "../../assets/logos/wwf.png";
-    import LOGO_2 from "../../assets/logos/sandbox.png";
+    import LOGO_2 from "../../assets/logos/the-sandbox.png";
     import LOGO_3 from "../../assets/logos/sothebys.png";
-    import LOGO_4 from "../../assets/logos/super-form.png";
+    import LOGO_4 from "../../assets/logos/superfarm.png";
     import LOGO_5 from "../../assets/logos/nifty-slab.png";
     import LOGO_6 from "../../assets/logos/hype.png";
     import LOGO_7 from "../../assets/logos/new-err.png";

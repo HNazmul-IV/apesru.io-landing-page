@@ -10,6 +10,7 @@
     onMount(async () => {
         HomePage = (await import("./pages/Home/index.svelte")).default;
         EpzPage = (await import("./pages/Epz/index.svelte")).default;
+        await import("./script/element-details");
     });
 </script>
 
@@ -17,7 +18,7 @@
 <Navbar />
 <main>
     {#if $slugs[0] === "epz"}
-        <svelte:component this="{EpzPage}"/>
+        <svelte:component this="{EpzPage}" />
     {:else}
         <svelte:component this="{HomePage}" />
     {/if}

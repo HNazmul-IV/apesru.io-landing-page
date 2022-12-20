@@ -37,10 +37,6 @@
                 <h2 class="team-member-card__content-subtitle mb-2 text-uppercase">{@html data.subtitle}</h2>
                 <p class="team-member-card__content-brief font-sans mb-0">
                     {#if typeof data.brief === "string"}
-                        <!-- {#if data.brief.length > 630}
-                            <span class="">{data.brief.substring(0, 620)}</span> <span class="brief-collapse collapse" id="brief-{data.id}">{data.brief.substring(620, data.brief.length)}</span>
-                            <button class="btn btn-sm text-warning fw-bold" data-bs-toggle="collapse" data-bs-target="#brief-{data.id}">...Read More</button>
-                        {/if} -->
                         {data.brief}
                     {/if}
                 </p>

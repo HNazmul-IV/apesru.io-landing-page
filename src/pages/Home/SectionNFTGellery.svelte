@@ -1,18 +1,25 @@
 <script lang="ts">
     import GlobalImageViewer from "../../lib/GlobalImageViewer.svelte";
     import { onMount, onDestroy } from "svelte";
-    import galleryData from "../../mocks/galleryData";
-    
+    import galleryData, { type GalleryObject } from "../../mocks/galleryData";
+    import { get } from "svelte/store";
+
     // Global Variables;
     let activeIndex = 0;
     let allElement: NodeListOf<HTMLDivElement>;
     let slidingAnimationFrame: number;
     const ACTIVE_CLASS = "active";
+    let activeSlideObject = get(galleryData)[activeIndex];
     const prevActiveElements = () => document.querySelectorAll(".nft-gallery-img-card.nft." + ACTIVE_CLASS);
 
-    function makeSlideActive(event: Event) {
+    function makeSlideActive(this: HTMLDivElement, event: Event) {
         prevActiveElements()?.forEach((element) => element.classList.remove?.(ACTIVE_CLASS));
-        setTimeout(() => this.classList.add(ACTIVE_CLASS), 0); //Adding class after Previous one Removed;
+
+        //Adding class after Previous one Removed;
+        setTimeout(() => this.classList.add(ACTIVE_CLASS), 0);
+
+        // getting active data from Clicked NFT item.
+        activeSlideObject = JSON.parse(this.dataset.meta);
     }
 
     //Sliding Elment with Request Animation Frame;
@@ -20,18 +27,18 @@
         function animate() {
             setTimeout(function () {
                 allElement[activeIndex]?.click?.();
-                activeIndex = activeIndex >= allElement.length - 1 ? 0 : ++activeIndex; // keeping active index under all element Length;
+
+                // keeping active index under all element Length;
+                activeIndex = activeIndex >= allElement.length - 1 ? 0 : ++activeIndex;
                 slidingAnimationFrame = window.requestAnimationFrame(animate);
             }, 3500);
         }
         slidingAnimationFrame = window.requestAnimationFrame(animate);
     }
 
-    //On Mount
     onMount(() => (allElement = document.querySelectorAll<HTMLDivElement>("#nft-collection .nft-gallery-img-card.nft")));
     onMount(elementSliding);
 
-    //On Destroy
     onDestroy(() => window.cancelAnimationFrame(slidingAnimationFrame));
     onDestroy(() => (allElement = document.querySelectorAll("nahikuch")));
 </script>
@@ -41,7 +48,12 @@
         <div class="gallery-area">
             <div class="gallery-wrapper__wrapper position-relative ">
                 {#each $galleryData as data}
-                    <div class="nft-gallery-img-card {data.class}" on:click="{makeSlideActive}" style="left:{data.positionX}%; top:{data.positionY}%">
+                    <div
+                        class="nft-gallery-img-card {data.class}"
+                        data-meta="{JSON.stringify(data)}"
+                        title="{activeSlideObject.class !== data.class ? 'Click To View Larger' : ''}"
+                        on:click="{activeSlideObject.class !== data.class && makeSlideActive}"
+                        style="left:{data.positionX}%; top:{data.positionY}%">
                         <img loading="{'lazy'}" src="{data.img}" alt="" />
                     </div>
                 {/each}

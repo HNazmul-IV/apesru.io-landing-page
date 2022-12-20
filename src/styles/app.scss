@@ -89,6 +89,12 @@ $object-position: (
     }
 }
 
+#epz-hero .hero-section-wrapper {
+    @include media-breakpoint-down(md) {
+        min-height: 500px;
+    }
+}
+
 @keyframes spinning {
     0% {
         transform: rotate(0turn);
@@ -98,21 +104,30 @@ $object-position: (
     }
 }
 
-
-@keyframes home-screen-progressbar-loading{
-    0%{
-        width:0%;
+@keyframes home-screen-progressbar-loading {
+    0% {
+        width: 0%;
     }
-    20%{
-        width:10%;
+    20% {
+        width: 10%;
     }
-    50%{
+    50% {
         width: 50%;
     }
-    70%{
+    70% {
         width: 60%;
     }
-    100%{
-        width:100%;
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes floating-animation-sm {
+    0% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(20px);
     }
 }

@@ -67,6 +67,9 @@
 
             &-brief {
                 font-size: var(--brief-fsz);
+                color: #636363;
+                font-weight: 700;
+                line-height: 15px;
             }
         }
     }
@@ -80,6 +83,10 @@
         --subtitle-stroke-w: 1px;
         --subtitle-fsz: 17px;
         --brief-fsz: 10px;
+
+        @media screen and (max-width: 1600px) {
+            --name-fsz: #{c(18px, 3vw, 25px)};
+        }
 
         @include media-breakpoint-down(lg) {
             --avatar-radius: 1rem;
@@ -185,7 +192,7 @@
                     height: 100%;
                     background: #faa61c;
                     border: #1a1a1a 4px solid;
-                    animation: home-screen-progressbar-loading 4s ease-in-out 1;
+                    animation: home-screen-progressbar-loading ease-in-out 1;
                     animation-fill-mode: forwards;
                 }
 

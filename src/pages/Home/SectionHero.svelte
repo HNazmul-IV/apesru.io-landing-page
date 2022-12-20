@@ -36,7 +36,7 @@
 </script>
 
 <header id="{id}" data-page="{page}" class=" {_sectionClass}">
-    <div class="theme-border border-bottom">
+    <div class="">
         <div class="container-2k">
             <div class="hero-section-wrapper position-relative">
                 <div class="header-bg">

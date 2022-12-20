@@ -12,7 +12,14 @@ import NFT_11 from "../assets/nfts/11.png";
 import NFT_12 from "../assets/nfts/12.png";
 import { readable } from "svelte/store";
 
-export default readable([
+export interface GalleryObject {
+    img: string;
+    class: string;
+    positionX: number;
+    positionY: number;
+}
+
+export default readable<GalleryObject[]>([
     {
         img: NFT_1,
         class: "nft nft-1 ",
@@ -42,55 +49,47 @@ export default readable([
         class: "nft nft-5 ",
         positionX: 14,
         positionY: -2,
-
     },
     {
         img: NFT_6,
         class: "nft nft-6 ",
         positionX: 70.3,
         positionY: 49,
-
     },
     {
         img: NFT_7,
         class: "nft nft-7 ",
         positionX: 2,
         positionY: 19,
-
     },
     {
         img: NFT_8,
         class: "nft nft-8 ",
         positionX: 21,
         positionY: 69,
-
     },
     {
         img: NFT_9,
         class: "nft nft-9 ",
         positionX: 67,
         positionY: 0,
-
     },
     {
         img: NFT_10,
         class: "nft nft-10 ",
         positionX: 83,
         positionY: 59,
-
     },
     {
         img: NFT_11,
         class: "nft nft-11 ",
         positionX: 78,
         positionY: 33,
-
     },
     {
         img: NFT_12,
         class: "nft nft-12 active",
         positionX: 91.3,
         positionY: 46,
-
     },
 ]);

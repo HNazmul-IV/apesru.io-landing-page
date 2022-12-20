@@ -1,4 +1,4 @@
-<script lang="ts">
+rc<script lang="ts">
     import HomePage_SectionHero from "./../Home/SectionHero.svelte";
     import IMG_HERO_BG from "../../assets/images/ezp-hero-bg.png";
     import IMG_HERO_MIDDLE from "../../assets/images/epz-hero-middle-img.png";
