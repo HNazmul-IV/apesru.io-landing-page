@@ -4,23 +4,16 @@
     let gsap: GSAP,
         progressbarInner: HTMLSpanElement,
         progressFinish: boolean = false,
-        isWindowLoaded: boolean = false,
-        netEffectiveType: string = "3g";
-
-    $: console.log(`document loaded ${isWindowLoaded}`);
+        isWindowLoaded: boolean = false;
 
     //For Quick Selecting HTMLElement;
     const select = <T>(query: string): T => document.querySelector(query) as any;
 
     function animate() {
         let tl = gsap.timeline({ defaults: { duration: 0.5 } });
-        tl; //.to(".loading-screen__gif > img", { x: -260, opacity: 0, duration: 0.3, ease: "power3.out" })
-        //     //     .to(".loading-text", { y: 100, opacity: 0, onComplete: () => (select<HTMLParagraphElement>(".loading-text").innerText = "Loading Finished.") }, "<")
-        //     //     .to(".loading-text", { y: 0, opacity: 1 }, 1)
-        //     .to(".loading-text", { y: `-${window.innerHeight}px`, opacity: 0, duration: 1 }, "<")
-        //     .to(".progress-bar", { y: `400`, duration: 1, opacity: 0 }, "<")
-        // .to(".loading-screen", { y: `-${window.innerHeight}`, duration: 1, opacity: 0, pointerEvents: "none" })
-        // .fromTo("main", { opacity: 0, duration: 1 }, { opacity: 1, onComplete: () => (progressFinish = true) }, "<");
+        tl.to(".loading-screen__content", { opacity: 0 })
+            .to(".loading-screen__content-outer", { y: `-100vh`, duration: 0.7, ease: "power2.out" }, "<80%")
+            .to(".loading-screen", { y: `-100vh`, duration: 0.7, ease: "power3.out", onComplete: () => (progressFinish = false) }, "<80%");
     }
 
     function handleProgress() {
@@ -42,7 +35,6 @@
         //updating window loaded state
         window.addEventListener("load", () => (isWindowLoaded = true));
         handleProgress();
-        animate();
     });
 </script>
 

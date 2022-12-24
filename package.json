@@ -8,6 +8,7 @@
     "dev-naz": "vite --host lab.naz.nz --port 7001",
     "build": "vite build",
     "preview": "vite preview --host lab-dev.d-0.io --port 7001",
+    "push":"git push github && git push origin",
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "devDependencies": {

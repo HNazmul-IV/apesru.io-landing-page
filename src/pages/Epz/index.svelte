@@ -2,4 +2,4 @@
     import SectionHero from "./SectionHero.svelte";
 </script>
 
-<SectionHero />
+<SectionHero/>

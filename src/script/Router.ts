@@ -9,7 +9,6 @@ export function getSlugs() {
 export function navigate(path: string, state?: any) {
     window.history.pushState(state, null, path);
     slugs.set(getSlugs());
-    console.log("🚀 ~ file: Router.ts ~ line 12 ~ navigate ~ getSlugs()", getSlugs());
 }
 
 export function hashNavigate(path: string, state?: any) {
@@ -17,7 +16,6 @@ export function hashNavigate(path: string, state?: any) {
     navigate(pathname, state);
     if (hash) {
         setTimeout(() => {
-            console.log(hash);
             const a = document.createElement("a");
             a.href = hash;
             a.click();
@@ -27,5 +25,4 @@ export function hashNavigate(path: string, state?: any) {
 
 addEventListener("popstate", function () {
     slugs.set(getSlugs());
-    console.log("🚀 ~ file: Router.ts ~ line 17 ~ getSlugs", getSlugs());
 });

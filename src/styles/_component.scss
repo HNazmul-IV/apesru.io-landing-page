@@ -25,9 +25,11 @@
             --avatar-width: 300px;
             --avatar-radius: 3rem;
         }
+
         @include media-breakpoint-down(lg) {
             --avatar-width: 250px;
         }
+
         &__avatar {
             width: var(--avatar-width);
             flex-shrink: 0;
@@ -35,7 +37,7 @@
             margin-left: var(--card-ml);
             order: var(--avatar-order);
 
-            & > img {
+            &>img {
                 width: 100%;
                 height: 100%;
                 border-radius: var(--avatar-radius);
@@ -99,6 +101,7 @@
                 flex-wrap: wrap;
                 flex-direction: column;
             }
+
             .team-member-card__content {
                 margin-top: 2vw;
                 text-align: center;
@@ -119,11 +122,13 @@
             --subtitle-stroke-w: 0.5px;
             --brief-fsz: 8px;
             --subtitle-fsz: 12px;
+
             .team-member-card__content {
                 text-align: center;
                 margin-top: 2vw;
             }
         }
+
         @include media-breakpoint-down(sm) {
             --name-fsz: 18px;
         }
@@ -131,6 +136,7 @@
 }
 
 @mixin global-image-viewer {
+
     .global-image-slider,
     .global-image-viewer {
         z-index: $nav-z-index + 5;
@@ -143,7 +149,7 @@
         z-index: $nav-z-index + 1000;
         width: 100%;
         height: 100vh;
-        background: #000;
+        background: rgb(13, 11, 10);
         top: 0px;
         left: 0px;
 
@@ -152,6 +158,8 @@
             height: 100%;
             display: grid;
             place-items: center;
+            background: black;
+
         }
     }
 
@@ -161,6 +169,7 @@
             width: 100%;
             position: relative;
             z-index: 1;
+
             .loading-text {
                 position: absolute;
                 top: 50%;
@@ -185,6 +194,7 @@
                 background: #202020cc;
                 border-radius: 20px;
                 margin-top: 3rem;
+
                 .progress-bar-inner {
                     border-radius: 20px;
                     position: absolute;

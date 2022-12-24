@@ -29,8 +29,9 @@
             colorProfile: "danger d-lg-none d-xxl-block ",
             separatePage: true,
             pageSlug: "all",
-            onClick() {
+            onClick(path: string) {
                 scrollTo({ top: 0 });
+                navigate(path);
             },
         },
         {
@@ -39,6 +40,9 @@
             colorProfile: "warning",
             separatePage: false,
             pageSlug: "/",
+            onClick(path: string) {
+                hashNavigate(path);
+            },
         },
         {
             name: "NFT&nbsp;Collection",
@@ -46,6 +50,9 @@
             colorProfile: "success",
             separatePage: false,
             pageSlug: "/",
+            onClick(path: string) {
+                hashNavigate(path);
+            },
         },
         {
             name: "Partners ",
@@ -53,6 +60,9 @@
             colorProfile: "info",
             separatePage: false,
             pageSlug: "/",
+            onClick(path: string) {
+                hashNavigate(path);
+            },
         },
         {
             name: "Roadmap&nbsp;2.0",
@@ -60,6 +70,9 @@
             colorProfile: "primary",
             separatePage: false,
             pageSlug: "/",
+            onClick(path: string) {
+                hashNavigate(path);
+            },
         },
         {
             name: "Promo&nbsp;Video",
@@ -67,6 +80,9 @@
             colorProfile: "danger",
             separatePage: false,
             pageSlug: "/",
+            onClick(path: string) {
+                hashNavigate(path);
+            },
         },
         {
             name: "Team",
@@ -74,6 +90,9 @@
             colorProfile: "warning",
             separatePage: false,
             pageSlug: "/",
+            onClick(path: string) {
+                hashNavigate(path);
+            },
         },
         {
             name: "epz",
@@ -81,8 +100,9 @@
             colorProfile: "primary",
             separatePage: true,
             pageSlug: "/epz",
-            onClick() {
+            onClick(path: string) {
                 scrollTo({ top: 0 });
+                setTimeout(() => navigate(path), 1000);
             },
         },
     ];
@@ -103,9 +123,7 @@
             <ul class="navbar-nav mx-auto px-3F py-5 py-lg-0" on:click="{() => window.innerWidth < 992 && navCollapse.hide()}">
                 {#each navbarLinkdata as link}
                     <li class="nav-item" in:fade>
-                        <button
-                            on:click|preventDefault="{() => (hashNavigate(link.link), setTimeout(link?.onClick, 100))}"
-                            class="nav-link fw-bold text-center text-lg-start btn  text-{link.colorProfile} text-uppercase">
+                        <button on:click|preventDefault="{() => link.onClick(link.link)}" class="nav-link fw-bold text-center text-lg-start btn  text-{link.colorProfile} text-uppercase">
                             {@html link.name}
                         </button>
                     </li>

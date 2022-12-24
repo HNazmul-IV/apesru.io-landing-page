@@ -1,7 +1,6 @@
 <script lang="ts">
     import { onMount, tick } from "svelte";
     import { slugs } from "./../../script/Router";
-    import IMG_HERO_MONKEY from "../../assets/images/hero-monkey.png";
     import LOGO_APESRU from "../../assets/images/logo.png";
     import IMG_SPINNING_LOGO from "../../assets/images/spinning-logo.svg";
     import IMG_MOBILE_VIDEO_POSTER from "../../assets/images/mobile-video-poster.png";
@@ -9,22 +8,24 @@
     export let id = "hero-section";
     export let page = "homepage";
     export let background = "https://cdn.discordapp.com/attachments/1019526578398572554/1044103510490370119/Landing_Animation.mp4";
-    export let middleImg = IMG_HERO_MONKEY;
     export let underSection = false;
     export let _sectionClass = "";
     export let bgType: "img" | "video" = "video";
     let videoElement: null | HTMLVideoElement;
 
     async function changingVideoDynamically() {
-        let userAgentBeforeResize = window.navigator.userAgent;
         async function changeElement() {
-            if (window.innerWidth < 575) {
-                videoElement.poster = IMG_MOBILE_VIDEO_POSTER;
-                await tick();
-                videoElement.src = "https://cdn.discordapp.com/attachments/1019526578398572554/1052918804918837339/Responsive_landing.mp4";
-            } else {
-                videoElement.src = background;
-                videoElement.poster = "";
+            
+            //Which Components Has video type it will Only set The Video Background;
+            if (bgType === "video") {
+                if (window.innerWidth < 575) {
+                    videoElement.poster = IMG_MOBILE_VIDEO_POSTER;
+                    await tick();
+                    videoElement.src = "https://cdn.discordapp.com/attachments/1019526578398572554/1052918804918837339/Responsive_landing.mp4";
+                } else {
+                    videoElement.src = background;
+                    videoElement.poster = "";
+                }
             }
         }
         //If Device is Not a mobile Device then Event will call;
