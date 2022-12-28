@@ -52,7 +52,7 @@
             <div class="loading-screen__content">
                 <div class="loading-screen__gif">
                     <img src="{IMG_WALKING_MONKEY}" alt="" class="w-100" />
-                    <p class="loading-text">ApesRu Loading ...</p>
+                    <p class="loading-text">ApesRUs Loading ...</p>
                 </div>
                 <div class="loading-screen__loading-progress">
                     <!-- <div class="progress-bar"><span class="progress-bar-inner" style="animation-duration: {netEffectiveType === '3g' ? '15s' : netEffectiveType === '2g' ? '25s' : '5s'}"></span></div> -->

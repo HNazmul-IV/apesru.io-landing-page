@@ -80,7 +80,7 @@
                     <!-- <img src="{IMG_WALKING_MONKEY}" alt="" class="w-100" /> -->
                 </div>
                 <div class="behind-text">
-                    <h3 class="text text-muted">Apesru On the Go</h3>
+                    <h3 class="text text-muted">ApesRUs On the Go</h3>
                 </div>
             </div>
         </div>
