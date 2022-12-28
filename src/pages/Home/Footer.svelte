@@ -5,23 +5,15 @@
     const footerLinks = [
         {
             label: "OpenSea",
-            link: "/#",
-        },
-        {
-            label: "Telegram",
-            link: "/#",
+            link: "https://opensea.io/collection/katun-apes-r-us",
         },
         {
             label: "Twitter",
-            link: "/#",
+            link: "https://twitter.com/ApesRus_io",
         },
         {
             label: "Discord",
-            link: "/#",
-        },
-        {
-            label: "Medium",
-            link: "/#",
+            link: "https://discord.com/invite/apesrus",
         },
     ];
 </script>
@@ -37,7 +29,7 @@
                     <ul class="nav footers-links justify-content-center justify-content-lg-end align-items-center">
                         {#each footerLinks as link}
                             <li class="nav-item">
-                                <a class="nav-link active" href="{link.link}">{link.label}</a>
+                                <a class="nav-link active" target="_blank" href="{link.link}">{link.label}</a>
                             </li>
                         {/each}
                     </ul>

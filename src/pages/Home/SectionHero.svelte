@@ -38,7 +38,7 @@
 
 <header id="{id}" data-page="{page}" class=" {_sectionClass}">
     <div class="">
-        <div class="container-2k">
+        <div class="container-2k-No">
             <div class="hero-section-wrapper position-relative">
                 <div class="header-bg">
                     {#if bgType === "img"}

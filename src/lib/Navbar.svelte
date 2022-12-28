@@ -151,7 +151,6 @@
         z-index: $nav-z-index;
         background: black;
         .navbar-nav {
-            transform: translateX(-100px);
             @include media-breakpoint-down(lg) {
                 transform: translateX(0px);
             }

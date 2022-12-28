@@ -3,8 +3,14 @@
     import IMG_WALKING_MONKEY from "../assets/gif/walking-monkey.gif";
     let gsap: GSAP,
         progressbarInner: HTMLSpanElement,
+        startAnimation = false,
         progressFinish: boolean = false,
+        animationFinished = false,
         isWindowLoaded: boolean = false;
+
+    $: if (startAnimation) {
+        animate();
+    }
 
     //For Quick Selecting HTMLElement;
     const select = <T>(query: string): T => document.querySelector(query) as any;
@@ -19,12 +25,14 @@
     function handleProgress() {
         //Event on ProgressBar animation Finished;
         select<HTMLSpanElement>(".progress-bar-inner").addEventListener("animationend", function () {
-            console.log("animation Finished");
+            animationFinished = true;
             if (isWindowLoaded || document.readyState === "complete") {
-                animate();
-            } else {
-                window.addEventListener<keyof WindowEventMap>("load", animate);
+                startAnimation = true;
             }
+        });
+        window.addEventListener("load", () => {
+            if (startAnimation === false) return (startAnimation = true);
+            return;
         });
     }
 
