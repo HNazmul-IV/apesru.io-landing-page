@@ -16,6 +16,7 @@
         @include media-breakpoint-down(lg) {
             margin-top: 4rem;
         }
+
         // @include media-breakpoint-down(sm) {
         &::before {
             content: "";
@@ -31,21 +32,26 @@
                 height: 15%;
             }
         }
+
         // }
     }
+
     .spinner-logo {
         position: absolute;
         top: 3%;
         left: 50%;
         transform: translateX(-50%);
-        & > img {
+
+        &>img {
             animation: spinning 3s infinite linear;
         }
     }
+
     .hero-bg-content {
         width: clamp(280px, 24.21875vw, 465px);
         position: absolute;
         bottom: 8.9259259%;
+
         @include media-breakpoint-down(sm) {
             bottom: 5%;
             width: 150px;
@@ -55,18 +61,22 @@
             width: 100%;
             margin-bottom: clamp(50px, 14.37vw, 276px);
             position: relative;
+
             @include media-breakpoint-down(md) {
                 margin-bottom: clamp(30px, 5.958333333333333vw, 80px);
             }
+
             @include media-breakpoint-down(sm) {
                 margin-bottom: 20px;
             }
         }
+
         .text {
             p {
                 line-height: 1.1em;
                 text-transform: uppercase;
                 text-align: center;
+
                 &.yellow-text {
                     font-size: 20px;
                     color: #000000 !important;
@@ -74,16 +84,11 @@
                     letter-spacing: 2px;
                 }
             }
-
-            @include media-breakpoint-down(sm) {
-                .lets-go,
-                .apes-ru {
-                    font-size: 20px;
-                }
-            }
         }
+
         .down-svg {
             width: 18px;
+
             @include media-breakpoint-down(sm) {
                 width: 20px;
             }
@@ -102,12 +107,13 @@
                 aspect-ratio: 4 / 8.65;
             }
         }
-        & > img {
+
+        &>img {
             width: 100%;
         }
 
         @include xs {
-            & > img {
+            &>img {
                 height: 100%;
                 object-fit: cover;
             }
@@ -120,19 +126,17 @@
         @include xs {
             width: 95%;
         }
-
-        & > img {
-            width: 100%;
-        }
     }
 
     .walking-monkey {
         .walking-monkey__area {
             position: relative;
             z-index: 1;
+
             .walking-monkey__image {
                 width: 100%;
             }
+
             .behind-text {
                 position: absolute;
                 width: 100%;
@@ -142,7 +146,7 @@
                 transform: translateY(-50%);
                 z-index: -1;
 
-                & > h3.text {
+                &>h3.text {
                     letter-spacing: 1em;
                 }
             }
@@ -182,7 +186,7 @@
                 width: 13.202614379084967%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -192,7 +196,7 @@
                 width: 17%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -202,7 +206,7 @@
                 width: 15.816993464052288%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -212,7 +216,7 @@
                 width: 15.816993464052288%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -222,7 +226,7 @@
                 width: 15.816993464052288%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -232,7 +236,7 @@
                 width: 12.549019607843137%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -242,7 +246,7 @@
                 width: 13.72549019607843%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -252,7 +256,7 @@
                 width: 17.77777777777778%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -262,7 +266,7 @@
                 width: 18.69281045751634%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -272,7 +276,7 @@
                 width: 11.568627450980392%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -282,7 +286,7 @@
                 width: 12.549019607843137%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
@@ -292,14 +296,14 @@
                 width: 9.607843137254902%;
                 aspect-ratio: 1 / 1;
 
-                & > img {
+                &>img {
                     width: 100%;
                     height: 100%;
                 }
             }
         }
 
-        & > img {
+        &>img {
             border: var(--img-border-width) solid black;
             border-radius: var(--img-border-radius);
             filter: blur(var(--img-blur));
@@ -308,7 +312,7 @@
         }
 
         &:not(.active) {
-            & > img {
+            &>img {
                 &:hover {
                     transform: scale(1.1);
                     --img-blur: 0;
@@ -333,7 +337,7 @@
                 width: 70% !important;
             }
 
-            & > img {
+            &>img {
                 width: 100%;
                 height: 100%;
             }
@@ -358,7 +362,7 @@
             height: 100%;
             top: 0px;
 
-            & > img {
+            &>img {
                 width: 100%;
                 height: 100%;
                 object-fit: contain;
@@ -366,7 +370,7 @@
             }
         }
 
-        & > img {
+        &>img {
             width: 100%;
         }
     }
@@ -377,6 +381,7 @@
                 font-size: 20px;
                 letter-spacing: 0.04em;
                 line-height: 25px;
+
                 @include media-breakpoint-down(md) {
                     font-size: 16px;
                 }
@@ -400,10 +405,12 @@
     #video {
         padding: c(50px, 8.75vw, 168px) 0px;
         --video-radius: #{c(10px, 2.5vw, 40px)};
-        & > .title > h1 {
+
+        &>.title>h1 {
             -webkit-text-stroke: 2px $warning;
             font-size: c(30px, 3.33vw, 64px);
             letter-spacing: 0.3em;
+
             @include xs {
                 letter-spacing: initial;
             }
@@ -433,6 +440,7 @@
                 box-shadow: 0px 4px 55px 0 rgb(250 166 28 / 30%);
                 border-width: 2px;
             }
+
             .play-pause-icon {
                 position: absolute;
                 width: 20%;
@@ -451,11 +459,11 @@
         border-image: linear-gradient(90deg, rgba(250, 166, 28, 0) 1.24%, rgba(250, 166, 28, 0.5) 52.02%, rgba(250, 166, 28, 0) 100.92%);
         border-image-slice: 1;
 
-        & > .title {
+        &>.title {
             padding: 1.5rem 0px;
             margin-bottom: 5.17rem;
 
-            & > img {
+            &>img {
                 width: c(200px, 40vw, 390px);
                 mix-blend-mode: color-burn;
                 object-fit: fill;
@@ -465,7 +473,7 @@
         @include media-breakpoint-down(sm) {
             padding: 2rem 10px;
 
-            & > .title {
+            &>.title {
                 margin-bottom: 1rem;
             }
         }
@@ -495,7 +503,7 @@
         }
 
         .partner-logo {
-            & > img {
+            &>img {
                 width: 100%;
                 height: 100%;
             }
@@ -524,7 +532,7 @@
         @include media-breakpoint-down(md) {
             max-width: 450px;
 
-            & > [class*="card-"] {
+            &>[class*="card-"] {
                 margin-bottom: 20px;
             }
         }
@@ -562,7 +570,7 @@
         }
 
         .artwork-gallery-img-card {
-            & > img {
+            &>img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
@@ -673,7 +681,7 @@
 }
 
 @mixin section-media {
-    #media > .title {
+    #media>.title {
         img {
             width: c(250px, 19.64vw, 377px);
         }
@@ -693,11 +701,12 @@
         }
 
         &:hover {
-            .card-content > .button > a {
+            .card-content>.button>a {
                 background: $warning;
                 color: white;
                 border-color: $white;
             }
+
             .overlay {
                 background: rgba(0, 0, 0, 0.669);
             }
@@ -706,7 +715,8 @@
         .card-bg {
             width: 100%;
             height: 100%;
-            & > img {
+
+            &>img {
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
@@ -731,11 +741,12 @@
             width: 100%;
             z-index: 2;
             transform: translateY(-40%);
+
             @include media-breakpoint-down(md) {
                 top: 40%;
             }
 
-            .title > h1 {
+            .title>h1 {
                 font-size: c(20px, 2.5vw, 36px);
 
                 @include media-breakpoint-down(md) {
@@ -747,30 +758,37 @@
                 position: relative;
                 width: max-content;
                 height: 90px;
+
                 @include xs {
                     height: 50px;
                 }
+
                 .logo {
                     position: absolute;
                     top: 50%;
-                    & > img {
+
+                    &>img {
                         @include media-breakpoint-down(md) {
                             max-width: 180px;
                             max-height: 90px;
                         }
+
                         @include media-breakpoint-down(sm) {
                             max-height: 50px;
                             max-width: 120px;
                         }
+
                         @include xs {
                             max-height: 30px;
                             max-width: 80px;
                         }
                     }
+
                     &.logo-1 {
                         left: 0;
                         transform: translate(calc(-100% - 20px), -50%);
                     }
+
                     &.logo-2 {
                         right: 0px;
                         transform: translate(calc(100% + 20px), -50%);
@@ -778,7 +796,8 @@
                 }
             }
         }
-        .button > a {
+
+        .button>a {
             background: rgba(0, 0, 0, 0.5);
             border: 0.5px solid #ffffff;
             backdrop-filter: blur(2.5px);
@@ -789,11 +808,13 @@
             display: inline-block;
             padding: 10px 30px;
             text-decoration: none;
+
             @include media-breakpoint-down(sm) {
                 padding: 7px 20px;
                 font-size: 14px;
                 border-radius: 10px;
             }
+
             @include xs {
                 @include font-sans;
                 font-size: 12px;
@@ -803,23 +824,23 @@
         @include media-breakpoint-down(sm) {
             border-radius: 10px;
 
-            .card-bg > img {
+            .card-bg>img {
                 border-radius: 10px;
             }
 
-            .card-content .below-title > h1 {
-                font-size: c(25px, 6vw, 40px);
-            }
+
         }
     }
 }
 
 @mixin section-team {
+
     /* Team Card Component and Parent Component Related Responsive code is in Global  File */
     #team {
         --border-width: 5px;
         --border-y: linear-gradient(90deg, rgba(250, 166, 28, 0) 1.24%, rgba(235, 33, 50, 0.5) 52.02%, rgba(250, 166, 28, 0) 100.92%);
     }
+
     .team-title {
         position: relative;
         z-index: 1;
@@ -831,7 +852,7 @@
             width: 100%;
             transform: translate(-50%, 0);
 
-            & > h1 {
+            &>h1 {
                 font-size: c(40px, 5vw, 96px);
                 color: $warning;
                 letter-spacing: 0.2em;
@@ -855,9 +876,11 @@
 @mixin section-about2 {
     #about-2 {
         padding: c(50px, 8.75vw, 168px) 0px;
-        & > .container-1920 {
+
+        &>.container-1920 {
             padding: 0px c(10px, 6.979vw, 134px);
         }
+
         .left-monkey-card {
             width: 100%;
             max-width: 386px;
@@ -865,6 +888,7 @@
 
         .desc {
             padding: 0px calc(100% / 12);
+
             p {
                 font-size: c(15px, 1.5vw, 20px);
                 margin-bottom: 0px;
@@ -874,9 +898,10 @@
         }
 
         @include media-breakpoint-down(xl) {
-            & > .container-1920 {
+            &>.container-1920 {
                 padding: 30px;
             }
+
             .desc {
                 padding: 0px;
             }
@@ -892,14 +917,17 @@
             padding: 6rem 0px 0rem;
         }
     }
+
     .roadmap-title {
         position: relative;
         isolation: isolate;
+
         .logo {
             width: c(100px, 17.8645vw, 343px);
             display: inline-block;
         }
-        & > .title {
+
+        &>.title {
             font-size: c(40px, 3.3333vw, 64px);
             -webkit-text-stroke: 1px $warning;
             margin-top: 10px;
@@ -911,6 +939,7 @@
             bottom: 0px;
             left: 50%;
             width: c(100px, 40.83vw, 784px);
+
             @include media-breakpoint-down(md) {
                 bottom: 30%;
             }
@@ -922,6 +951,7 @@
         background: black;
         position: relative;
     }
+
     .roadmap-images__wrapper {
         width: 100%;
         max-width: 1141px;
@@ -929,13 +959,16 @@
         margin: auto;
         position: relative;
         z-index: 1;
+
         .roadmap-images__image-card {
             position: absolute;
             filter: grayscale(1) blur(3px);
             transition: 0.3s;
-            & > img {
+
+            &>img {
                 width: 100%;
             }
+
             &.roadmap-banner {
                 width: 99.12357581069237%;
                 aspect-ratio: 12 / 4.87002652519894;
@@ -943,6 +976,7 @@
                 left: 0.8764241893076249%;
                 z-index: 1;
             }
+
             &.roadmap-stage-1 {
                 width: 35.93339176161262%;
                 aspect-ratio: 12 / 18.08780487804878;
@@ -950,6 +984,7 @@
                 left: 63.71603856266434%;
                 z-index: 1;
             }
+
             &.roadmap-stage-1-monkey {
                 width: 68.53637160385627%;
                 aspect-ratio: 12 / 18.092071611253196;
@@ -957,6 +992,7 @@
                 left: 0.0876424189307625%;
                 z-index: 1;
             }
+
             &.roadmap-stage-2 {
                 width: 36.89745836985101%;
                 aspect-ratio: 12 / 16.617577197149643;
@@ -964,6 +1000,7 @@
                 left: 60.91148115687993%;
                 z-index: 1;
             }
+
             &.roadmap-stage-3 {
                 width: 96.75723049956179%;
                 aspect-ratio: 12 / 6.152173913043478;
@@ -971,6 +1008,7 @@
                 left: 0.175284837861525%;
                 z-index: 1;
             }
+
             &.roadmap-stage-4 {
                 width: 85.2760736196319%;
                 aspect-ratio: 12 / 6.610483042137719;
@@ -978,6 +1016,7 @@
                 left: 2.716914986853637%;
                 z-index: 3;
             }
+
             &.roadmap-stage-4-door {
                 width: 100%;
                 aspect-ratio: 12 / 6.562664329535496;
@@ -985,6 +1024,7 @@
                 left: 0%;
                 z-index: 2;
             }
+
             &.roadmap-stage-4-floor {
                 width: 96.14373356704645%;
                 aspect-ratio: 12 / 12.109389243391066;
@@ -1002,15 +1042,18 @@
         .roadmap-images__flying-paper {
             position: absolute;
             z-index: 1;
-            & > img {
+
+            &>img {
                 width: 100%;
             }
+
             &.middle {
                 width: 115.95528455284553%;
                 aspect-ratio: 12 / 12;
                 top: 28.691%;
                 left: -46.626%;
             }
+
             &.bottom {
                 width: 115.95528455284553%;
                 aspect-ratio: 12 / 12;
@@ -1026,15 +1069,19 @@
         .title {
             z-index: 1;
             position: relative;
+
             .small-title {
                 font-size: 32px;
+
                 @include media-breakpoint-down(sm) {
                     font-size: 25px;
                 }
             }
+
             .main-title {
                 font-size: 48px;
                 -webkit-text-stroke: 1px #faa61c;
+
                 @include media-breakpoint-down(sm) {
                     font-size: 40px;
                 }
@@ -1044,16 +1091,15 @@
         .gif-image-container .gif-image-wrapper {
             text-align: center;
             margin-top: -40px;
+
             @include media-breakpoint-down(md) {
                 margin-top: -10px;
             }
+
             .gif-image {
                 max-width: 759px;
                 width: 100%;
                 display: inline-block;
-                & > img {
-                    width: 100%;
-                }
             }
         }
     }
@@ -1062,12 +1108,15 @@
 @mixin footer {
     #footer {
         margin-top: auto;
+
         .footer-area {
             background: var(--bg-img) no-repeat center center / cover;
         }
+
         .footer-logo {
             width: c(200px, 18.38vw, 353px);
         }
+
         .footer-container {
             padding: 0px 7.96vw;
         }
@@ -1083,6 +1132,7 @@
                 .nav-link {
                     font-size: 22px;
                     color: white;
+
                     &:hover {
                         color: $warning;
                     }

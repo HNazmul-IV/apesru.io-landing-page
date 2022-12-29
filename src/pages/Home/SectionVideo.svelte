@@ -48,7 +48,7 @@
 
 <section id="video">
     <div class="title py-0 py-md-5">
-        <h1 class=" text-center text-black mb-5 text-uppercase">ApusRus video</h1>
+        <h1 class=" text-center text-black mb-5 text-uppercase">Apes&nbsp;R&nbsp;Us &nbsp;video</h1>
     </div>
     <div class="video-area">
         <div class="video-container mx-auto">

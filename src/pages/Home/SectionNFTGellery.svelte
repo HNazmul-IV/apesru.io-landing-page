@@ -61,8 +61,6 @@
         </div>
     </div>
 </section>
-
-<!-- <GlobalImageViewer {...{sliderElement:""}}/> -->
 <style lang="scss">
     @use "../../styles/pageHome" as main;
     @include main.section-nft-collection();

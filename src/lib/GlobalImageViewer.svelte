@@ -1,7 +1,7 @@
 <script lang="ts">
     export let mode: "viewer" | "slider" = "viewer";
-    export let sliderParent = "";
-    export let sliderElement = "";
+    // export let sliderParent = "";
+    // export let sliderElement = "";
     let elements: Element | NodeListOf<Element>;
 </script>
 

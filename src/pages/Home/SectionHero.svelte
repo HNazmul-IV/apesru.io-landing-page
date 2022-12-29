@@ -44,7 +44,7 @@
                     {#if bgType === "img"}
                         <img src="{background}" alt="Apesrus header background" />
                     {:else if bgType === "video"}
-                        <video class="header-bg-video" bind:this="{videoElement}" loop autoplay="{true}" muted="{true}" src="{background}"> </video>
+                        <video class="header-bg-video"  bind:this="{videoElement}" loop data-auto-play muted="{true}" src="{background}"> </video>
                     {/if}
                 </div>
 

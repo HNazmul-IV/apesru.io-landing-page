@@ -11,6 +11,7 @@
         EpzPage = (await import("./pages/Epz/index.svelte")).default;
         Navbar = (await import("./lib/Navbar.svelte")).default;
         await import("./script/element-details");
+        await import("./lib/onLoadScripts");
     });
 </script>
 
