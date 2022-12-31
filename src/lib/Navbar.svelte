@@ -108,7 +108,7 @@
     ];
 </script>
 
-<nav class="navbar navbar-expand-lg position-fixed    w-100 top-0 start-0 p-0 px-3 p-lg-0" class:shrink bind:this="{navbar}">
+<nav class="navbar navbar-expand-lg position-fixed    w-100 top-0 start-0 p-0 px-3 p-lg-0" class:shrink="{shrink}" bind:this="{navbar}">
     <div class="container-fluid p-1 p-md-2">
         <a class="navbar-brand text-light fw-normal" href="/#"><img class="logo d-sm-none" data-gsap="navbar-logo" src="{LOGO}" alt="APESRUS Brand Logo" /></a>
         <button class="navbar-toggler text-warning" type="button" data-bs-toggle="collapse" data-bs-target="#nav-item-collapse">
@@ -128,6 +128,9 @@
                         </button>
                     </li>
                 {/each}
+                <li class="nav-item ms-lg-4 text-center">
+                    <a href="https://marketplace.apesrus.io/" target="_blank" class="btn btn-warning nav-link-button px-4 text-uppercase">MarketPlace</a>
+                </li>
             </ul>
         </div>
     </div>
@@ -145,6 +148,10 @@
         }
     }
 
+    .nav-link-button {
+        box-shadow: 0px 0px 13px 1px #faa61c;
+        border-radius: 14px;
+    }
     nav.navbar {
         --base-transition: 0.3s;
         transition: var(--base-transition);
